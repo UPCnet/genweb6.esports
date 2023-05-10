@@ -18,4 +18,16 @@
       directory="static"
       />
 
+    <!-- Content Management Menu (Toolbar Item) -->
+    <browser:menu
+        id="sync_content_menu"
+        title=""
+        class=".menu.SyncContentMenu"
+        />
+
+    <adapter for="* *"
+        name="sync_content_menu"
+        factory=".menu.SyncContentSubMenuItem"
+        provides="plone.app.contentmenu.interfaces.IContentMenuItem" />
+
 </configure>
