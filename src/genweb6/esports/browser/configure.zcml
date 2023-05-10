@@ -30,4 +30,32 @@
         factory=".menu.SyncContentSubMenuItem"
         provides="plone.app.contentmenu.interfaces.IContentMenuItem" />
 
+    <!-- Import views -->
+
+    <browser:page
+        name="sync_all_content"
+        for="*"
+        class="genweb6.esports.browser.import.SyncAllContentView"
+        layer="genweb6.esports.interfaces.IGenweb6EsportsLayer"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:page
+        name="sync_content"
+        for="genweb6.esports.content.sync_folder.ISyncFolder"
+        class="genweb6.esports.browser.import.SyncContentView"
+        layer="genweb6.esports.interfaces.IGenweb6EsportsLayer"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:page
+        name="clean"
+        for="genweb6.esports.content.sync_folder.ISyncFolder"
+        class="genweb6.esports.browser.import.CleanSyncFolderView"
+        layer="genweb6.esports.interfaces.IGenweb6EsportsLayer"
+        permission="cmf.ManagePortal"
+        />
+
+
+
 </configure>
