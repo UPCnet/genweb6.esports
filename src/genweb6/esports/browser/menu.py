@@ -1,17 +1,15 @@
-from plone.app.contentmenu.interfaces import IActionsMenu
-from plone.app.contentmenu.interfaces import IActionsSubMenuItem
-from plone.app.contentmenu.menu import BrowserMenu
-from plone.app.contentmenu.menu import BrowserSubMenuItem
+from plone import api
+from plone.app.contentmenu.interfaces import IActionsMenu, IActionsSubMenuItem
+from plone.app.contentmenu.menu import BrowserMenu, BrowserSubMenuItem
 from zope.interface import implementer
 from zope.security import checkPermission
-from plone import api
-
+from genweb6.esports.utils import query_catalog
 
 
 @implementer(IActionsSubMenuItem)
 class SyncContentSubMenuItem(BrowserSubMenuItem):
 
-    title = 'Content management'
+    title = 'Gestió de continguts'
     submenuId = 'sync_content_menu'
 
     # HTML attrs
@@ -42,13 +40,13 @@ class SyncContentMenu(BrowserMenu):
         url = context.absolute_url()
         menu = []
 
-        #Obtain SyncFolders. 1 SyncFolder - 1  Submenu Item
-        sync_folders = self.query_catalog()
+        # Obtain SyncFolders. 1 SyncFolder - 1  Submenu Item
+        sync_folders = query_catalog('SyncFolder')
         for s_folder in sync_folders:
             menu.append({
                 'title': s_folder.title,
                 'description': '',
-                'action': s_folder.absolute_url() + '/folder_contents',
+                'action': f'{s_folder.absolute_url()}/folder_contents',
                 'selected': False,
                 'extra': {
                     'separator': None,
@@ -56,56 +54,16 @@ class SyncContentMenu(BrowserMenu):
                 }
             })
 
+        # Append Sync Content Button
         menu.append({
-            'title': 'Sync Content',
+            'title': 'Sincronitzar continguts',
             'description': '',
-            'action': url + '/sync_all_content',
+            'action': f'{url}/sync_all_content',
             'selected': False,
             'extra': {
                 'separator': None,
-                'class': 'toolbar-sync-content-item-button'
+                'class': 'btn-primary'  # Not working
             }
         })
 
-        """ 
-        menu = [
-            {
-                'title': 'Installations',
-                'description': '',
-                'action': f'{url}/gestio/instalacions',
-                'selected': False,
-                'extra': {
-                    'separator': None,
-                    'class': 'toolbar-sync-content-item'
-                }
-            },
-            {
-                'title': 'Comeptitions',
-                'description': '',
-                'action': f'{url}/gestio/comepticions',
-                'selected': False,
-                'extra': {
-                    'separator': None,
-                    'class': 'toolbar-sync-content-item'
-                }
-            },
-            {
-                'title': 'Activities',
-                'description': '',
-                'action': f'{url}/gestio/activitats',
-                'selected': False,
-                'extra': {
-                    'separator': None,
-                    'class': 'toolbar-sync-content-item'
-                }
-            }
-        ]
-        """
         return menu
-    
-    def query_catalog(self):
-        catalog = api.portal.get_tool('portal_catalog')
-        params = {'portal_type': 'SyncFolder', 'review_state': 'published'}
-
-        brains = catalog.searchResults(**params)
-        return [brain.getObject() for brain in brains]
