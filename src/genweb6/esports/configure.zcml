@@ -17,6 +17,7 @@
   <include package=".content" />
 
   <include file="permissions.zcml" />
+  <include file="upgrades.zcml" />
 
   <genericsetup:registerProfile
       name="default"
@@ -39,6 +40,12 @@
   <utility
       factory=".setuphandlers.HiddenProfiles"
       name="genweb6.esports-hiddenprofiles"
+      />
+
+  <utility
+      factory=".keywords.KeywordsCategorizationUtility"
+      provides=".keywords.IKeywordsCategorizationUtility"
+      name="portal_keywords_categorization"
       />
 
   <!-- -*- extra stuff goes here -*- -->
