@@ -51,7 +51,7 @@ def post_install(context):
         return
 
     gestio_container = createContentInContainer(ca_container, 'Folder', title='Gestió')
-    publish_object(gestio_container)
+    publish_object(gestio_container) 
 
     for item in DATA:
         obj = createContentInContainer(gestio_container, 'SyncFolder',
@@ -62,3 +62,27 @@ def post_install(context):
 def uninstall(context):
     """Uninstall script"""
     # Do something at the end of the uninstallation of this package.
+    alsoProvides(context, IDisableCSRFProtection)
+
+    portal_url = api.portal.get_tool('portal_url')
+    site = portal_url.getPortalObject()
+
+    # TODO: Set 'gestio' container directly above Site root path, since there's no Multilingual in Esports.
+    path = f'/{site.getPhysicalPath()[1]}/ca'
+    ca_container = site.unrestrictedTraverse(path)
+    ids = ca_container.objectIds()
+
+    # Avoid process if 'gestio' folder already exists.
+    if 'gestio' in ids:
+        return
+
+    gestio_container = createContentInContainer(ca_container, 'Folder', title='Gestió')
+    publish_object(gestio_container)
+
+    for item in DATA:
+        obj = createContentInContainer(gestio_container, 'SyncFolder',
+                                 title=item['title'], id=item['id'], importer=item['importer'], url=item['xml'])
+        publish_object(obj)
+
+ 
+
