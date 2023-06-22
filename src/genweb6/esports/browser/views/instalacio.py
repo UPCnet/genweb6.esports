@@ -54,5 +54,4 @@ class InstalacioView(BrowserView):
             'sports': get_list_from_string(self.context.deportes),
             'details': self.context.detalles,
         }
-
         return info

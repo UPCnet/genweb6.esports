@@ -57,13 +57,13 @@
 
                                 <h3 tal:condition="item/rates_title" class="text-primary mt-3 mb-2">PREUS</h3>
                                 <ul class="list-unstyled">
-                                    <li tal:repeat="tarifa item/rates" class="mb-3">
+                                    <li tal:repeat="rate item/rates" class="mb-3">
                                         <p class="mb-0">
-                                            <strong tal:condition="tarifa/descrip" tal:content="tarifa/descrip"></strong>
-                                            <span tal:condition="tarifa/importe" tal:content="tarifa/importe"></span>
+                                            <strong tal:condition="rate/descrip" tal:content="rate/descrip"></strong>
+                                            <span tal:condition="rate/importe" tal:content="rate/importe"></span>
                                         </p>
-                                        <p tal:condition="tarifa/memoweb" class="text-danger mb-0 fst-italic fw-normal" tal:content="tarifa/memoweb"></p>
-                                        <span tal:condition="tarifa/dates" tal:content="tarifa/dates" class="small"></span>
+                                        <p tal:condition="rate/memoweb" class="text-danger mb-0 fst-italic fw-normal" tal:content="rate/memoweb"></p>
+                                        <span tal:condition="rate/dates" tal:content="rate/dates" class="small"></span>
                                     </li>
                                 </ul>
 

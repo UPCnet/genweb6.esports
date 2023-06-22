@@ -45,19 +45,19 @@ class CompeticioView(BrowserView):
     def parse_location(self):
         """ Adds comma to concatenation instalacion and complex"""
         try:
-            insta = self.context.insta
-            complejo = self.context.complejo
-            lugar = None
-            if insta and complejo:
-                lugar = insta + ', ' + complejo
-            if insta and not complejo:
-                lugar = insta
-            if not insta and complejo:
-                lugar = complejo
-            if not insta and not complejo:
-                lugar = None
+            installation = self.context.installation
+            complex = self.context.complex
+            location = None
+            if installation and complex:
+                location = installation + ', ' + complex
+            if installation and not complex:
+                location = installation
+            if not installation and complex:
+                location = complex
+            if not installation and not complex:
+                location = None
 
-            return lugar
+            return location
 
         except:
             return None
