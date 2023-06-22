@@ -56,6 +56,38 @@
         permission="cmf.ManagePortal"
         />
 
+    <!-- Content Views -->
+    <!-- Usar para la colección -->
+<!--     <browser:page
+        name="whatsnew_view"
+        for="plone.app.contenttypes.interfaces.ICollection"
+        class=".whatsnew_view.WhatsnewView"
+        permission="zope.Public"
+        layer="..interfaces.IUniteThemeLayer" /> -->
+
+    <browser:page
+        name="curs_view"
+        for="genweb6.esports.content.curs.ICurs"
+        template="views_templates/curs.pt"
+        class=".views.curs.CursView"
+        permission="zope2.View"
+        layer="..interfaces.IGenweb6EsportsLayer" />
+
+    <browser:page
+        name="competicio_view"
+        for="genweb6.esports.content.competicio.ICompeticio"
+        class=".views.competicio.CompeticioView"
+        template="views_templates/competicio.pt"
+        permission="zope2.View"
+        layer="..interfaces.IGenweb6EsportsLayer" />
+
+    <browser:page
+        name="instalacio_view"
+        for="genweb6.esports.content.instalacio.IInstalacio"
+        template="views_templates/instalacio.pt"
+        class=".views.instalacio.InstalacioView"
+        permission="zope2.View"
+        layer="..interfaces.IGenweb6EsportsLayer" />
 
 
 </configure>
