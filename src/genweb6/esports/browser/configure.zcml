@@ -84,8 +84,8 @@
     <browser:page
         name="instalacio_view"
         for="genweb6.esports.content.instalacio.IInstalacio"
-        template="views_templates/instalacio.pt"
         class=".views.instalacio.InstalacioView"
+        template="views_templates/instalacio.pt"
         permission="zope2.View"
         layer="..interfaces.IGenweb6EsportsLayer" />
 
