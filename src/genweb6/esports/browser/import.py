@@ -3,18 +3,17 @@ import xml.etree.ElementTree as ET
 from urllib.parse import unquote
 
 import bleach
+import requests
 import transaction
 from DateTime import DateTime
+from genweb6.esports.keywords import IKeywordsCategorizationUtility
+from genweb6.esports.utils import publish_object
 from lxml import etree
-from plone import api
 from plone.dexterity.utils import createContentInContainer
 from plone.protect.interfaces import IDisableCSRFProtection
 from Products.Five.browser import BrowserView
-from zope.interface import alsoProvides
 from zope.component import getUtility
-from genweb6.esports.keywords import IKeywordsCategorizationUtility
-from genweb6.esports.utils import make_curl_request, publish_object
-
+from zope.interface import alsoProvides
 
 
 class CleanSyncFolderView(BrowserView):
@@ -88,12 +87,9 @@ class ImporterView(BrowserView):
     def get_XML(self):
         """  
         Get data in XML format from OMESA
-        Requests from PY 3+ won't work attacking Omesa
-        Workaround using CURL to get the data
         """
-
-        data = make_curl_request(self.context.url)
-        tree = etree.fromstring(data)
+        data = requests.get(self.context.url)
+        tree = etree.fromstring(data.content)
         self.xml = tree
 
     def get_tags(self, item):

@@ -8,7 +8,7 @@ from zope.interface import implementer
 
 
 class ICurs(IOmesaContent):
-    """Dexterity-Schema for Curs"""
+    """Dexterity-Schema for Curs (Activitat)"""
 
     etiquetas = schema.TextLine(
         title=_(u"Etiquetas"),

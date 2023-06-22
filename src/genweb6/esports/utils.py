@@ -34,3 +34,9 @@ def query_catalog(portal_type):
 
     brains = catalog.searchResults(**params)
     return [brain.getObject() for brain in brains]
+
+def get_list_from_string(string):
+    try:
+        return eval(string)
+    except:
+        return []

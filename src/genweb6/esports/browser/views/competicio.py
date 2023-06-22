@@ -1,5 +1,6 @@
 from Products.Five.browser import BrowserView
 from zope.component.hooks import getSite
+from genweb6.esports.utils import get_list_from_string
 
 
 class CompeticioView(BrowserView):
@@ -12,30 +13,21 @@ class CompeticioView(BrowserView):
     def portal_url(self):
         return getSite().absolute_url()
 
-    def tarifas(self):
+    def check_rates_title(self):
         try:
-            return eval(self.context.tarifas)
-        except:
-            return []
-
-    def tarifas_title(self):
-        try:
-            values = self.tarifas()
-            if values[0]['importe'] is False and \
-               values[0]['fianzacur'] is False and \
-               values[0]['impjugabo'] is False and \
-               values[0]['fianzajugabo'] is False and \
-               values[0]['impjugnoabo'] is False and \
-               values[0]['fianzajugnoabo'] is False and \
-               values[0]['impjugotro'] is False and \
-               values[0]['fianzajugotro'] is False:
+            rates = get_list_from_string(self.context.tarifas)
+            if not rates:
                 return False
-            else:
+
+            rate = rates[0]
+            if any(value is not False for value in rate.keys()):
                 return True
+            
+            return False
         except:
             return False
         
-    def credits(self):
+    def get_credits(self):
         try:
             value = self.context.creditos.strip().replace(',', '.')
             if value == '0.00':
@@ -50,7 +42,7 @@ class CompeticioView(BrowserView):
         else:
             return credit_value + 'ETCS'
 
-    def lugar(self):
+    def parse_location(self):
         """ Adds comma to concatenation instalacion and complex"""
         try:
             insta = self.context.insta
@@ -71,28 +63,31 @@ class CompeticioView(BrowserView):
             return None
 
     def get_info(self):
-        return {
-            'img_dep': self.context.img_dep,
-            'img_dep_url': self.base_url + self.context.img_dep,
-            'deporte': self.context.deporte,
-            'denom': self.context.denom,
-            'competi': self.context.competi,
-            'campeonato': self.context.campeonato,
-            'competicionie': self.context.competicionie,
-            'sexo': self.context.sexo,
-            'modalidad': self.context.modalidad,
+        """ Get needed info in the template """
+        info = {
+            'sport_img': self.context.img_dep,
+            'sport_img_url': self.base_url + self.context.img_dep,
+            'sport': self.context.deporte,
+            'sport_description': self.context.denom,
+            'competition': self.context.competi,
+            'championship': self.context.campeonato,
+            'competition_type': self.context.competicionie,
+            'gender': self.context.sexo,
+            'modality': self.context.modalidad,
             'division': self.context.division,
-            'grupo': self.context.grupo,
-            'lugar': self.lugar(),
-            'fase': self.context.fase,
-            'fecini': self.context.fecini,
-            'fecfin': self.context.fecfin,
-            'enlace': self.context.enlace,
-            'normativa': self.context.normativa,
-            'documentoanexo': self.context.documentoanexo,
-            'feciniins': self.context.feciniins,
-            'fecfinins': self.context.fecfinins,
-            'creditos': self.credits(),
-            'tarifas': self.tarifas(),
-            'descripcion': self.context.descripcion,
+            'group': self.context.grupo,
+            'location': self.parse_location(),
+            'phase': self.context.fase,
+            'start_date': self.context.fecini,
+            'end_date': self.context.fecfin,
+            'link': self.context.enlace,
+            'rules': self.context.normativa,
+            'attachment': self.context.documentoanexo,
+            'inst_start_date': self.context.feciniins,
+            'inst_end_date': self.context.fecfinins,
+            'credits': self.get_credits(),
+            'rates': get_list_from_string(self.context.tarifas),
+            'rates_title': self.check_rates_title(),
+            'description': self.context.descripcion,
         }
+        return info

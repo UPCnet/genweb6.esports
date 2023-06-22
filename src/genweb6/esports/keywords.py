@@ -50,8 +50,8 @@ class KeywordsCategorizationUtility(SimpleItem):
                 data = make_curl_request(url)
                 xml = etree.XML(data)
                 if xml.tag != 'filtros':
-                    filtros = xml.findall('filtros')
-                    xml = filtros[0]
+                    filters = xml.findall('filtros')
+                    xml = filters[0]
 
                 for filtertype in xml.iterchildren():
                     filterid = filtertype.tag

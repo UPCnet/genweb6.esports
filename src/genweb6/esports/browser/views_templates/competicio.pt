@@ -23,56 +23,56 @@
                             <div class="col-md-5 col-sm-12">
                                 <ul class="list-unstyled">
                                     <li>
-                                        <img tal:attributes="src item/img_dep_url" tal:condition="item/img_dep_url" class="img-thumbnail"/>
+                                        <img tal:attributes="src item/sport_img_url" tal:condition="item/sport_img_url" class="img-thumbnail"/>
                                     </li>
                                 </ul>
                             </div>
 
                             <div id="info" class="col-md-7">
-                                <h2 tal:condition="item/deporte" tal:content="item/deporte" class="mb-0"/>
-                                <h3 tal:define="denom item/denom;
-                                       competi item/competi" tal:condition="python:denom or competi" tal:content="string:${item/denom} (ref. ${item/competi})" class="text-primary"/>
-                                <p class="mb-0 fw-bold" tal:condition="item/campeonato">CAMPIONAT:
-                                    <span class="fw-normal" tal:content="item/campeonato"></span>
+                                <h2 tal:condition="item/sport" tal:content="item/sport" class="mb-0"/>
+                                <h3 tal:define="sport_description item/sport_description;
+                                       competition item/competition" tal:condition="python:sport_description or competition" tal:content="string:${item/sport_description} (ref. ${item/competition})" class="text-primary"/>
+                                <p class="mb-0 fw-bold" tal:condition="item/championship">CAMPIONAT:
+                                    <span class="fw-normal" tal:content="item/championship"></span>
                                 </p>
-                                <p class="mb-0 fw-bold" tal:condition="item/competicionie">Tipus competicio:
-                                    <span class="fw-normal" tal:content="item/competicionie"></span>
+                                <p class="mb-0 fw-bold" tal:condition="item/competition_type">Tipus competicio:
+                                    <span class="fw-normal" tal:content="item/competition_type"></span>
                                 </p>
-                                <p class="mb-0 fw-bold" tal:condition="item/sexo">Sexe:
-                                    <span class="fw-normal" tal:content="item/sexo"></span>
+                                <p class="mb-0 fw-bold" tal:condition="item/gender">Sexe:
+                                    <span class="fw-normal" tal:content="item/gender"></span>
                                 </p>
-                                <p class="mb-0 fw-bold" tal:condition="item/modalidad">Modalitat:
-                                    <span class="fw-normal" tal:content="item/modalidad"></span>
+                                <p class="mb-0 fw-bold" tal:condition="item/modality">Modalitat:
+                                    <span class="fw-normal" tal:content="item/modality"></span>
                                 </p>
                                 <p class="mb-0 fw-bold" tal:condition="item/division">Divisio:
                                     <span class="fw-normal" tal:content="item/division"></span>
                                 </p>
-                                <p class="mb-0 fw-bold" tal:condition="item/grupo">Grup:
-                                    <span class="fw-normal" tal:content="item/grupo"></span>
+                                <p class="mb-0 fw-bold" tal:condition="item/group">Grup:
+                                    <span class="fw-normal" tal:content="item/group"></span>
                                 </p>
-                                <p class="mb-0 fw-bold" tal:condition="view/lugar">Lloc:
-                                    <span class="fw-normal" tal:content="view/lugar">Instal·lació i complexe</span>
+                                <p class="mb-0 fw-bold" tal:condition="item/location">Lloc:
+                                    <span class="fw-normal" tal:content="item/location">Instal·lació i complexe</span>
                                 </p>
-                                <p class="mb-0 fw-bold" tal:condition="item/fase">Fase:
-                                    <span class="fw-normal" tal:content="item/fase"></span>
+                                <p class="mb-0 fw-bold" tal:condition="item/phase">Fase:
+                                    <span class="fw-normal" tal:content="item/phase"></span>
                                 </p>
-                                <p class="mb-0 fw-bold" tal:define="inici item/fecini;
-                                       fi item/fecfin" tal:condition="python:inici or fi">Dates de realització:
-                                    <span class="fw-normal" tal:content="inici"></span>
-                                    <span class="fw-normal" tal:condition="fi">-                                        <span tal:content="fi"></span>
+                                <p class="mb-0 fw-bold" tal:define="start item/start_date;
+                                       end item/end_date" tal:condition="python:start or end">Dates de realització:
+                                    <span class="fw-normal" tal:content="start"></span>
+                                    <span class="fw-normal" tal:condition="end">-                                        <span tal:content="end"></span>
                                     </span>
                                 </p>
                                 <div class="mt-2">
-                                    <a tal:attributes="href string:https://esportsonline.upc.edu${item/enlace}" tal:condition="item/enlace" class="btn btn-success">Calendaris, Resultats i Classificacions
+                                    <a tal:attributes="href string:https://esportsonline.upc.edu${item/link}" tal:condition="item/link" class="btn btn-success">Calendaris, Resultats i Classificacions
                                     </a>
                                 </div>
                                 <div class="mt-2">
                                     <p class="mb-0">
-                                        <a class="text-decoration-none link-primary" tal:attributes="href string:${item/normativa}" tal:condition="item/normativa">Consulta  la normativa<i class="bi bi-link-45deg"></i>
+                                        <a class="text-decoration-none link-primary" tal:attributes="href string:${item/rules}" tal:condition="item/rules">Consulta  la normativa<i class="bi bi-link-45deg"></i>
                                         </a>
                                     </p>
                                     <p>
-                                        <a class="text-decoration-none link-primary" tal:attributes="href string:https://esportsonline.upc.edu${item/documentoanexo}" tal:condition="item/documentoanexo">Documentació associada a la competició  <i class="bi bi-file-earmark"></i>
+                                        <a class="text-decoration-none link-primary" tal:attributes="href string:https://esportsonline.upc.edu${item/attachment}" tal:condition="item/attachment">Documentació associada a la competició  <i class="bi bi-file-earmark"></i>
                                         </a>
                                     </p>
                                 </div>
@@ -84,18 +84,18 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-5" tal:define="inici item/feciniins; fi item/fecfinins">
-                        <h3 tal:condition="python: inici or fi" class="mb-3 text-primary">DATES D'INSCRIPCIÓ</h3>
-                        <p class="fw-bold mb-0" tal:condition="inici">
+                    <div class="col-md-5" tal:define="start item/inst_start_date; end item/inst_end_date">
+                        <h3 tal:condition="python: start or end" class="mb-3 text-primary">DATES D'INSCRIPCIÓ</h3>
+                        <p class="fw-bold mb-0" tal:condition="start">
                             Del:
-                            <span class="fw-normal" tal:content="inici"></span>
+                            <span class="fw-normal" tal:content="start"></span>
                         </p>
-                        <p class="fw-bold" tal:condition="fi">
+                        <p class="fw-bold" tal:condition="end">
                             Fins:
-                            <span class="fw-normal" tal:content="fi"></span>
+                            <span class="fw-normal" tal:content="end"></span>
                         </p>
-                        <div tal:condition="view/credits">
-                            <img tal:attributes="src string:${context/absolute_url}/++theme++genweb6.esports/theme/img/${view/credits}.jpg" />
+                        <div tal:condition="item/credits">
+                            <img tal:attributes="src string:${context/absolute_url}/++theme++genweb6.esports/theme/img/${item/credits}.jpg" />
                             <p>
                                 <span>Per l'obtenció dels Crèdits es requereix un mínim de presència.</span>
                             </p>
@@ -103,54 +103,54 @@
                     </div>
 
                     <div class="col-md-7">
-                        <h3 tal:condition="view/tarifas_title" class="mb-3 text-primary">QUOTA D'INSCRIPCIÓ</h3>
+                        <h3 tal:condition="item/rates_title" class="mb-3 text-primary">QUOTA D'INSCRIPCIÓ</h3>
                         <ul class="list-unstyled">
-                            <li tal:repeat="tarifa view/tarifas">
-                                <tal:omit-tag tal:condition="tarifa/importe">
+                            <li tal:repeat="rate item/rates">
+                                <tal:omit-tag tal:condition="rate/importe">
                                     <p class="fw-bold mb-0">Preu per Equip:
-                                        <span class="fw-normal" tal:content="tarifa/importe"></span>
+                                        <span class="fw-normal" tal:content="rate/importe"></span>
                                         <span class="fw-normal">€</span>
                                     </p>
                                 </tal:omit-tag>
-                                <tal:omit-tag tal:condition="tarifa/fianzacur">
+                                <tal:omit-tag tal:condition="rate/fianzacur">
                                     <p class="fw-bold mb-0">Fiança per Equip:
-                                        <span class="fw-normal" tal:content="tarifa/fianzacur"></span>
+                                        <span class="fw-normal" tal:content="rate/fianzacur"></span>
                                         <span class="fw-normal">€</span>
                                     </p>
                                 </tal:omit-tag>
-                                <tal:omit-tag tal:condition="tarifa/impjugabo">
+                                <tal:omit-tag tal:condition="rate/impjugabo">
                                     <p class="fw-bold mb-0">Preu Jugador UPC:
-                                        <span class="fw-normal" tal:content="tarifa/impjugabo"></span>
+                                        <span class="fw-normal" tal:content="rate/impjugabo"></span>
                                         <span class="fw-normal">€</span>
                                     </p>
                                 </tal:omit-tag>
-                                <tal:omit-tag tal:condition="tarifa/fianzajugabo">
+                                <tal:omit-tag tal:condition="rate/fianzajugabo">
                                     <p class="fw-bold mb-0">Fiança Jugador UPC:
-                                        <span class="fw-normal" tal:content="tarifa/fianzajugabo"></span>
+                                        <span class="fw-normal" tal:content="rate/fianzajugabo"></span>
                                         <span class="fw-normal">€</span>
                                     </p>
                                 </tal:omit-tag>
-                                <tal:omit-tag tal:condition="tarifa/impjugnoabo">
+                                <tal:omit-tag tal:condition="rate/impjugnoabo">
                                     <p class="fw-bold mb-0">Preu Jugador No UPC:
-                                        <span class="fw-normal" tal:content="tarifa/impjugnoabo"></span>
+                                        <span class="fw-normal" tal:content="rate/impjugnoabo"></span>
                                         <span class="fw-normal">€</span>
                                     </p>
                                 </tal:omit-tag>
-                                <tal:omit-tag tal:condition="tarifa/fianzajugnoabo">
+                                <tal:omit-tag tal:condition="rate/fianzajugnoabo">
                                     <p class="fw-bold mb-0">Fiança Jugador No UPC:
-                                        <span class="fw-normal" tal:content="tarifa/fianzajugnoabo"></span>
+                                        <span class="fw-normal" tal:content="rate/fianzajugnoabo"></span>
                                         <span class="fw-normal">€</span>
                                     </p>
                                 </tal:omit-tag>
-                                <tal:omit-tag tal:condition="tarifa/impjugotro">
+                                <tal:omit-tag tal:condition="rate/impjugotro">
                                     <p class="fw-bold mb-0">Preu Altres Jugadors:
-                                        <span class="fw-normal" tal:content="tarifa/impjugotro"></span>
+                                        <span class="fw-normal" tal:content="rate/impjugotro"></span>
                                         <span class="fw-normal">€</span>
                                     </p>
                                 </tal:omit-tag>
-                                <tal:omit-tag tal:condition="tarifa/fianzajugotro">
+                                <tal:omit-tag tal:condition="rate/fianzajugotro">
                                     <p class="fw-bold mb-0">Fiança Altres Jugadors:
-                                        <span class="fw-normal" tal:content="tarifa/fianzajugotro"></span>
+                                        <span class="fw-normal" tal:content="rate/fianzajugotro"></span>
                                         <span class="fw-normal">€</span>
                                     </p>
                                 </tal:omit-tag>
