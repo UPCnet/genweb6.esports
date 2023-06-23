@@ -6,96 +6,94 @@
 
     <body class="curs-view">
 
-        <metal:block fill-slot="top_slot" tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
+        <metal:content-core fill-slot="content-core">
+            <metal:block define-macro="content-core">
+
+                <metal:block fill-slot="top_slot" tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
                                disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+                <div tal:define="item view/get_info">
+                    <div class="row">
 
-        <div metal:fill-slot="portlets_one_slot">
-            <tal:comment tal:replace="nothing">get rid of the left hand column portlets to avoid confusion</tal:comment>
-        </div>
-
-        <div metal:fill-slot="main">
-            <div tal:define="item view/get_info">
-                <div class="row">
-
-                    <div id="imatges" class="col-md-5">
-                        <ul class="list-unstyled">
-                            <li tal:condition="item/img">
-                                <img tal:attributes="src item/img_url" class="img-thumbnail">
-                                </li>
-                            </ul>
-
-                            <div tal:define="rate item/rates" tal:condition="rate" class="mt-3">
-                                <h3 class="text-primary mb-2 fw-normal">PREUS</h3>
-                                <ul class="list-unstyled">
-                                    <li tal:repeat="rate item/rates">
-                                        <p class="mb-0">
-                                            <strong tal:content="rate/descrip"></strong>
-                                            <span tal:content="rate/importe"></span>
-                                        </p>
-                                        <p class="mb-0"> <strong>Dates d'inscripció:</strong>
-                                            <span tal:content="rate/inicio"></span> -
-                                            <span tal:content="rate/fin"></span>
-                                        </p>
-                                        <p class="text-danger fw-normal fst-italic" tal:content="rate/memoweb"/>
+                        <div id="imatges" class="col-md-4">
+                            <ul class="list-unstyled">
+                                <li tal:condition="item/img">
+                                    <img tal:attributes="src item/img_url" class="img-thumbnail">
                                     </li>
                                 </ul>
+
+                                <div tal:define="rate item/rates" tal:condition="rate" class="mt-3">
+                                    <h3 class="text-primary mb-2 fw-normal">PREUS</h3>
+                                    <ul class="list-unstyled">
+                                        <li tal:repeat="rate item/rates">
+                                            <p class="mb-0">
+                                                <strong tal:content="rate/descrip"></strong>
+                                                <span tal:content="rate/importe"></span>
+                                            </p>
+                                            <p class="mb-0">
+                                                <strong>Dates d'inscripció:</strong>
+                                                <span tal:content="rate/inicio"></span> -
+                                                <span tal:content="rate/fin"></span>
+                                            </p>
+                                            <p class="text-danger fw-normal fst-italic" tal:content="rate/memoweb"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div id="info" class="col-md-8">
+                                <h2 tal:condition="item/activity" tal:content="item/activity" class="mb-0"/>
+                                <h3 tal:define="description item/description;
+                             course item/course" tal:condition="python:description or course" tal:content="string:${item/description} (ref. ${item/course})" class="text-primary"/>
+                                <p tal:content="item/texper" class="fw-bold mb-0"/>
+                                <p tal:content="item/texdiasem" class="fw-bold mb-0"/>
+                                <p tal:content="item/texhor" class="fw-bold mb-0"/>
+                                <p tal:define="name item/name;
+                            lastnames item/lastnames" tal:condition="python:name or lastnames">
+                                    <strong>Professor:</strong>
+                                    <span tal:content="item/name" tal:condition="item/name"></span>
+                                    <span tal:content="item/lastnames" tal:condition="item/lastnames"></span>
+                                </p>
+                                <p tal:condition="item/location" class="mb-0">
+                                    <strong>Lloc:</strong>
+                                    <span tal:content="item/location">Instal·lació i complexe</span>
+                                </p>
+                                <p tal:condition="item/state" class="mb-0">
+                                    <strong>Estat:</strong>
+                                    <span tal:content="item/state"></span>
+                                </p>
+                                <p tal:condition="item/level" class="mb-2">
+                                    <strong>Nivell:</strong>
+                                    <span tal:content="item/level"></span>
+                                </p>
+                                <p tal:condition="item/link">
+                                    <a tal:attributes="href string:https://esportsonline.upc.edu/${item/link}" class="btn btn-danger">Contracta online
+                                        <i class="bi bi-cart-check icon-white"></i>
+                                    </a>
+                                </p>
+                                <p tal:condition="item/attachment">
+                                    <a tal:attributes="href string:https://esportsonline.upc.edu${item/attachment}">Consulta la informació associada a l'activitat  <i class="icon-download-alt"></i>
+                                    </a>
+                                </p>
+                                <h3 tal:define="positions item/positions;
+                            credits item/credits" tal:condition="python:positions or credits" class="text-primary fw-normal mb-0 mt-4">PLACES</h3>
+                                <p tal:condition="item/positions">Totals:
+                                    <span tal:content="item/positions"></span>
+                                </p>
+                                <div tal:condition="item/credits">
+                                    <img class="credits" tal:attributes="src string:++theme++genweb6.esports/img/${item/credits}.jpg" />
+                                    <p>
+                                        <span>A validar-se amb el Quadern de Control d'Assitència (QCA)</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
 
-                        <div id="info" class="col-md-7">
-                            <h2 tal:condition="item/activity" tal:content="item/activity" class="mb-0"/>
-                            <h3 tal:define="description item/description;
-                             course item/course" tal:condition="python:description or course" tal:content="string:${item/description} (ref. ${item/course})" class="text-primary"/>
-                            <p tal:content="item/texper" class="fw-bold mb-0"/>
-                            <p tal:content="item/texdiasem" class="fw-bold mb-0"/>
-                            <p tal:content="item/texhor" class="fw-bold mb-0"/>
-                            <p tal:define="name item/name;
-                            lastnames item/lastnames" tal:condition="python:name or lastnames">
-                                <strong>Professor:</strong>
-                                <span tal:content="item/name" tal:condition="item/name"></span>
-                                <span tal:content="item/lastnames" tal:condition="item/lastnames"></span>
-                            </p>
-                            <p tal:condition="item/location" class="mb-0">
-                                <strong>Lloc:</strong>
-                                <span tal:content="item/location">Instal·lació i complexe</span>
-                            </p>
-                            <p tal:condition="item/state" class="mb-0">
-                                <strong>Estat:</strong>
-                                <span tal:content="item/state"></span>
-                            </p>
-                            <p tal:condition="item/level" class="mb-2">
-                                <strong>Nivell:</strong>
-                                <span tal:content="item/level"></span>
-                            </p>
-                            <p tal:condition="item/link">
-                                <a tal:attributes="href string:https://esportsonline.upc.edu/${item/link}" class="btn btn-danger">Contracta online
-                                    <i class="bi bi-cart-check icon-white"></i>
-                                </a>
-                            </p>
-                            <p tal:condition="item/attachment">
-                                <a tal:attributes="href string:https://esportsonline.upc.edu${item/attachment}">Consulta la informació associada a l'activitat  <i class="icon-download-alt"></i>
-                                </a>
-                            </p>
-                            <h3 tal:define="positions item/positions;
-                            credits item/credits" tal:condition="python:positions or credits" class="text-primary fw-normal mb-0 mt-4">PLACES</h3>
-                            <p tal:condition="item/positions">Totals:
-                                <span tal:content="item/positions"></span>
-                            </p>
-                            <div tal:condition="item/credits">
-                                <img class="credits" tal:attributes="src string:++serveiesports++static/${item/credits}.jpg" />
-                                <p>
-                                    <span>A validar-se amb el Quadern de Control d'Assitència (QCA)</span>
-                                </p>
-                            </div>
-                        </div>
                     </div>
 
-                </div>
-            </div>
-            <div class="row">
-                <div class="portletview-header" tal:condition="context/descrip" style="padding: 15px 20px;">
-                    <span tal:replace="structure context/descrip"></span>
-                </div>
-            </div>
-        </body>
-    </html>
+
+            </metal:block>
+        </metal:content-core>
+
+
+    </body>
+</html>
