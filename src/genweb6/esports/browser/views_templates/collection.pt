@@ -1,0 +1,69 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n" metal:use-macro="context/main_template/macros/master" i18n:domain="genweb6.esports">
+
+
+    <body class="collection-view">
+
+        <metal:content-core fill-slot="content-core">
+            <metal:block define-macro="content-core">
+
+
+                <div class="row portlet-view" tal:define="item view/get_info">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h1 tal:content="item/title"></h1>
+                            </div>
+                            <p tal:replace="structure item/text">Content</p>
+                            <div class="col-md-4" style="padding: 35px 10px 10px 10px">
+                                <img tal:attributes="src item/leadimage">
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>    
+
+
+                <!-- Aquí usar / crear macro de N-destacats? -->
+
+<!--                 <div class="row">
+                    <div class="col-md-9">
+                        <div class="row">
+                            
+                            <div class="col-md-3"
+                                tal:condition="have_portlets_slot2"
+                                tal:define="manager_name string:genweb.portlets.HomePortletManager2"
+                                tal:attributes="class python:'span' + view.getSpanValueForManager(manager_name)">
+                                <span tal:replace="structure python:view.renderProviderByName(manager_name)" />
+                            </div>
+                            <div class="col-md-3"
+                                tal:condition="have_portlets_slot3"
+                                tal:define="manager_name string:genweb.portlets.HomePortletManager3"
+                                tal:attributes="class python:'span' + view.getSpanValueForManager(manager_name)">
+                                <span tal:replace="structure python:view.renderProviderByName(manager_name)" />
+                            </div>
+                            <div class="col-md-3"
+                                tal:condition="have_portlets_slot4"
+                                tal:define="manager_name string:genweb.portlets.HomePortletManager4"
+                                tal:attributes="class python:'span' + view.getSpanValueForManager(manager_name)">
+                                <span tal:replace="structure python:view.renderProviderByName(manager_name)" />
+                            </div>
+
+                        </div>
+                    </div>
+                </div> -->
+
+            </metal:block>
+        </metal:content-core>
+
+
+
+
+
+
+    </body>
+
+
+</html>

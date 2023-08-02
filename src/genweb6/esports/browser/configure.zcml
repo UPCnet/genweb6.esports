@@ -58,12 +58,13 @@
 
     <!-- Content Views -->
     <!-- Usar para la colección -->
-<!--     <browser:page
-        name="whatsnew_view"
+    <browser:page
+        name="collection_view"
         for="plone.app.contenttypes.interfaces.ICollection"
-        class=".whatsnew_view.WhatsnewView"
-        permission="zope.Public"
-        layer="..interfaces.IUniteThemeLayer" /> -->
+        template="views_templates/collection.pt"
+        class=".views.collection.CollectionView"
+        permission="zope2.View"
+        layer="..interfaces.IGenweb6EsportsLayer" />
 
     <browser:page
         name="curs_view"
@@ -89,5 +90,14 @@
         permission="zope2.View"
         layer="..interfaces.IGenweb6EsportsLayer" />
 
+    <!-- Behaviors -->
+    <plone:behavior
+        title="Lead image"
+        name="esports.leadimage"
+        description="Adds lead image to collection"
+        provides=".behaviors.ILeadImage"
+        factory=".behaviors.LeadImage"
+        for="plone.app.contenttypes.interfaces.ICollection"
+        />
 
 </configure>
