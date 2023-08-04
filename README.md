@@ -1,2 +1,0 @@
-# genweb6.esports
-

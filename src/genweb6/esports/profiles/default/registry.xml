@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<registry>
+
+  <records
+    interface="Products.CMFPlone.interfaces.IBundleRegistry"
+    prefix="plone.bundles/esports-bundle">
+
+    <value key="enabled">True</value>
+    <value key="compile">True</value>
+    <value key="resources">
+      <element>esports-main</element>
+    </value>
+    <value key="jscompilation" />
+    <value key="csscompilation">++theme++genweb6.esports/stylesheets/theme-esports.min.css</value>
+
+  </records>
+
+</registry>
