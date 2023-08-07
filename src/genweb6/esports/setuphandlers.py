@@ -26,7 +26,7 @@ DATA = [
     {'id': 'instalacions', 'title': 'Instal·lacions',
      'importer': 'genweb6.esports.browser.import.InstalacioImporter',
      'xml': 'https://esportsonline.upc.edu/datos/pregen/xml/instalaciones.xml'},
-    {'id': 'cursos', 'title': 'Cursos',
+    {'id': 'activitats', 'title': 'Activitats',
      'importer': 'genweb6.esports.browser.import.ActivitatImporter',
      'xml': 'https://esportsonline.upc.edu/datos/pregen/xml/cursos.xml'},
     {'id': 'competicions', 'title': 'Competicions',
@@ -41,17 +41,16 @@ def post_install(context):
     portal_url = api.portal.get_tool('portal_url')
     site = portal_url.getPortalObject()
 
-    # TODO: Set 'gestio' container directly above Site root path, since there's no Multilingual in Esports.
-    path = f'/{site.getPhysicalPath()[1]}/ca'
-    ca_container = site.unrestrictedTraverse(path)
+    ca_container = site.unrestrictedTraverse('ca')
     ids = ca_container.objectIds()
 
-    # Avoid process if 'gestio' folder already exists.
+    # Return if 'gestio' folder already exists.
     if 'gestio' in ids:
         return
 
     gestio_container = createContentInContainer(ca_container, 'Folder', title='Gestió')
     publish_object(gestio_container) 
+    setattr(gestio_container, 'exclude_from_nav', True)
 
     for item in DATA:
         obj = createContentInContainer(gestio_container, 'SyncFolder',
@@ -62,27 +61,5 @@ def post_install(context):
 def uninstall(context):
     """Uninstall script"""
     # Do something at the end of the uninstallation of this package.
-    alsoProvides(context, IDisableCSRFProtection)
-
-    portal_url = api.portal.get_tool('portal_url')
-    site = portal_url.getPortalObject()
-
-    # TODO: Set 'gestio' container directly above Site root path, since there's no Multilingual in Esports.
-    path = f'/{site.getPhysicalPath()[1]}/ca'
-    ca_container = site.unrestrictedTraverse(path)
-    ids = ca_container.objectIds()
-
-    # Avoid process if 'gestio' folder already exists.
-    if 'gestio' in ids:
-        return
-
-    gestio_container = createContentInContainer(ca_container, 'Folder', title='Gestió')
-    publish_object(gestio_container)
-
-    for item in DATA:
-        obj = createContentInContainer(gestio_container, 'SyncFolder',
-                                 title=item['title'], id=item['id'], importer=item['importer'], url=item['xml'])
-        publish_object(obj)
-
  
 
