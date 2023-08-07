@@ -62,7 +62,7 @@
         name="collection_view"
         for="plone.app.contenttypes.interfaces.ICollection"
         template="views_templates/collection.pt"
-        class=".views.collection.CollectionView"
+        class=".views.collection.EsportsCollectionView"
         permission="zope2.View"
         layer="..interfaces.IGenweb6EsportsLayer" />
 

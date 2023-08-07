@@ -9,61 +9,55 @@
         <metal:content-core fill-slot="content-core">
             <metal:block define-macro="content-core">
 
-
                 <div class="row portlet-view" tal:define="item view/get_info">
                     <div class="col-md-12">
                         <div class="row">
-                            <div class="col-md-8">
-                                <h1 tal:content="item/title"></h1>
-                            </div>
                             <p tal:replace="structure item/text">Content</p>
                             <div class="col-md-4" style="padding: 35px 10px 10px 10px">
                                 <img tal:attributes="src item/leadimage">
+                                </div>
+                                <div class="clearfix"></div>
                             </div>
-                            <div class="clearfix"></div>
                         </div>
                     </div>
-                </div>    
 
 
-                <!-- Aquí usar / crear macro de N-destacats? -->
+                    <tal:block tal:define="items python:view.get_items()">
+                        <div tal:condition="items" class="custom-destacats">
+                            <section class="gw-tile destacats3 container content-banners">
+                                <div class="row">
 
-<!--                 <div class="row">
-                    <div class="col-md-9">
-                        <div class="row">
-                            
-                            <div class="col-md-3"
-                                tal:condition="have_portlets_slot2"
-                                tal:define="manager_name string:genweb.portlets.HomePortletManager2"
-                                tal:attributes="class python:'span' + view.getSpanValueForManager(manager_name)">
-                                <span tal:replace="structure python:view.renderProviderByName(manager_name)" />
-                            </div>
-                            <div class="col-md-3"
-                                tal:condition="have_portlets_slot3"
-                                tal:define="manager_name string:genweb.portlets.HomePortletManager3"
-                                tal:attributes="class python:'span' + view.getSpanValueForManager(manager_name)">
-                                <span tal:replace="structure python:view.renderProviderByName(manager_name)" />
-                            </div>
-                            <div class="col-md-3"
-                                tal:condition="have_portlets_slot4"
-                                tal:define="manager_name string:genweb.portlets.HomePortletManager4"
-                                tal:attributes="class python:'span' + view.getSpanValueForManager(manager_name)">
-                                <span tal:replace="structure python:view.renderProviderByName(manager_name)" />
-                            </div>
+                                    <div tal:repeat="item items" class="col-lg-4 col-md-6" tal:define="abaseclass string:btn-banner btn-banner-large btn-banner-stretch">
+                                        <div tal:attributes="class python:abaseclass if item['image'] else abaseclass + ' notimage-banner';" tal:define="tamany string:preview">
 
+                                            <picture tal:condition="python: item['image']">
+                                                <source tal:attributes="srcset item/image" />
+                                                <img loading="lazy" tal:attributes="data-src item/image; alt item/title|nothing;" />
+                                            </picture>
+
+                                            <div tal:define="tamany string:preview" class="text-decoration-none">
+                                                <h2 tal:content="item/title" class="w-100">Àgormació Permanent</h2>
+                                                <p tal:condition="item/dates" tal:content="item/dates" class="text-body">Període</p>
+
+                                                <div class="butonera d-flex justify-content-between">
+                                                    <p tal:condition="item/url">
+                                                        <a tal:attributes="href item/url" class="btn btn-sm btn-primary">Accedeix
+                                                        </a>
+                                                    </p>
+                                                    <p tal:condition="item/omesa_link">
+                                                        <a tal:attributes="href string:https://esportsonline.upc.edu/${item/omesa_link}" class="btn btn-sm btn-danger">Contracta online
+                                                            <i class="bi bi-cart-check icon-white"></i>
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
-                    </div>
-                </div> -->
-
-            </metal:block>
-        </metal:content-core>
-
-
-
-
-
-
-    </body>
-
-
-</html>
+                    </tal:block>
+                </metal:block>
+            </metal:content-core>
+        </body>
+    </html>
