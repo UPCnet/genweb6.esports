@@ -1,0 +1,361 @@
+#--- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+#SOME DESCRIPTIVE TITLE.
+#FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2023-08-07 08:28+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: genweb6.esports\n"
+
+#: ../browser/configure.zcml:101
+msgid "Adds lead image to collection"
+msgstr ""
+
+#: ../browser/behaviors.py:18
+msgid "Afegeix imatge"
+msgstr ""
+
+#: ../content/curs.py:59
+msgid "Apellidos"
+msgstr ""
+
+#: ../content/competicio.py:38
+msgid "Campeonato"
+msgstr ""
+
+#: ../content/competicio.py:28
+msgid "Competición"
+msgstr ""
+
+#: ../content/competicio.py:78
+#: ../content/curs.py:69
+msgid "Complejo"
+msgstr ""
+
+#: ../content/competicio.py:108
+#: ../content/curs.py:104
+msgid "Créditos"
+msgstr ""
+
+#: ../content/curs.py:29
+msgid "Curso"
+msgstr ""
+
+#: ../content/instalacio.py:40
+msgid "Código postal"
+msgstr ""
+
+#: ../content/competicio.py:23
+msgid "Deporte"
+msgstr ""
+
+#: ../content/activitat_agenda.py:17
+msgid "Descripció de l'activitat que es veurà al crear l'agenda"
+msgstr ""
+
+#: ../content/activitat_agenda.py:16
+msgid "Descripció pública"
+msgstr ""
+
+#: ../content/competicio.py:123
+msgid "Descripción"
+msgstr ""
+
+#: ../content/curs.py:109
+msgid "Descripción html"
+msgstr ""
+
+#: ../content/instalacio.py:65
+msgid "Detalles"
+msgstr ""
+
+#: ../content/curs.py:44
+msgid "Dias semana"
+msgstr ""
+
+#: ../content/instalacio.py:35
+msgid "Dirección"
+msgstr ""
+
+#: ../content/competicio.py:63
+msgid "División"
+msgstr ""
+
+#: ../content/competicio.py:118
+msgid "Documento anexo"
+msgstr ""
+
+#: ../content/instalacio.py:60
+msgid "Email"
+msgstr ""
+
+#: ../content/competicio.py:128
+#: ../content/curs.py:114
+#: ../content/instalacio.py:95
+msgid "Enlace"
+msgstr ""
+
+#: ../content/curs.py:79
+msgid "Estado"
+msgstr ""
+
+#: ../content/competicio.py:13
+#: ../content/curs.py:14
+#: ../content/instalacio.py:20
+msgid "Etiquetas"
+msgstr ""
+
+#: ../content/competicio.py:43
+msgid "Fase"
+msgstr ""
+
+#: ../content/competicio.py:93
+#: ../content/curs.py:89
+msgid "Fecha final"
+msgstr ""
+
+#: ../content/competicio.py:103
+msgid "Fecha final 2"
+msgstr ""
+
+#: ../content/competicio.py:88
+#: ../content/curs.py:84
+msgid "Fecha inicio"
+msgstr ""
+
+#: ../content/competicio.py:98
+msgid "Fecha inicio 2"
+msgstr ""
+
+#: ../content/curs.py:39
+msgid "Fechas"
+msgstr ""
+
+#: ../content/competicio.py:68
+msgid "Grupo"
+msgstr ""
+
+#: ../content/curs.py:49
+msgid "Horas"
+msgstr ""
+
+#: ../content/competicio.py:18
+#: ../content/curs.py:19
+#: ../content/instalacio.py:75
+msgid "Imagen"
+msgstr ""
+
+#: ../content/curs.py:24
+#: ../content/instalacio.py:80
+msgid "Imagen grande"
+msgstr ""
+
+#: ../content/instalacio.py:85
+msgid "Imagen instalación"
+msgstr ""
+
+#: ../content/instalacio.py:90
+msgid "Imagen instalación grande"
+msgstr ""
+
+#: ../content/activitat_agenda.py:40
+#: ../content/banner_esports.py:27
+msgid "Imatge"
+msgstr ""
+
+#: ../content/sync_folder.py:19
+msgid "Importer class"
+msgstr ""
+
+#: ../content/competicio.py:83
+#: ../content/curs.py:74
+msgid "Instalación"
+msgstr ""
+
+#: ../configure.zcml:30
+msgid "Installs the genweb6.esports add-on."
+msgstr ""
+
+#: ../browser/behaviors.py:17
+msgid "Lead Image"
+msgstr ""
+
+#: ../browser/configure.zcml:101
+msgid "Lead image"
+msgstr ""
+
+#: ../content/competicio.py:73
+#: ../content/curs.py:64
+msgid "Lugar"
+msgstr ""
+
+#: ../content/activitat_agenda.py:35
+#: ../content/banner_esports.py:22
+msgid "Marcar la opció se voleu que s'obri en una finestra nova"
+msgstr ""
+
+#: ../content/competicio.py:58
+msgid "Modalidad"
+msgstr ""
+
+#: ../content/curs.py:94
+msgid "Nivel"
+msgstr ""
+
+#: ../content/destacat.py:34
+msgid "No mostrar el text 'Llegir més'"
+msgstr ""
+
+#: ../content/destacat.py:28
+msgid "No mostrar part ombrejada del text"
+msgstr ""
+
+#: ../content/destacat.py:16
+msgid "No mostrar títol al destacat"
+msgstr ""
+
+#: ../content/curs.py:54
+msgid "Nombre"
+msgstr ""
+
+#: ../content/competicio.py:113
+msgid "Normativa"
+msgstr ""
+
+#: ../content/activitat_agenda.py:34
+#: ../content/banner_esports.py:21
+msgid "Obrir en finestra nova"
+msgstr ""
+
+#: ../content/instalacio.py:100
+msgid "Observaciones"
+msgstr ""
+
+#: ../content/destacat.py:40
+msgid "Picture"
+msgstr ""
+
+#: ../content/curs.py:99
+msgid "Plazas"
+msgstr ""
+
+#: ../content/destacat.py:41
+msgid "Please upload an image"
+msgstr ""
+
+#: ../content/instalacio.py:45
+msgid "Población"
+msgstr ""
+
+#: ../content/instalacio.py:50
+msgid "Província"
+msgstr ""
+
+#: ../content/competicio.py:53
+msgid "Sexo"
+msgstr ""
+
+#: ../content/destacat.py:17
+msgid "Si està seleccionat, no es mostra el títol al destacat."
+msgstr ""
+
+#: ../content/destacat.py:35
+msgid "Si està seleccionat, no es mostra l'enllac al llegir més."
+msgstr ""
+
+#: ../content/destacat.py:29
+msgid "Si està seleccionat, no es mostra la part ombrejada al destacat ni el seu text."
+msgstr ""
+
+#: ../content/activitat_agenda.py:41
+#: ../content/banner_esports.py:28
+msgid "Si us plau, pujeu una imatge descriptiva"
+msgstr ""
+
+#: ../content/competicio.py:133
+#: ../content/curs.py:119
+#: ../content/instalacio.py:15
+msgid "Tarifas"
+msgstr ""
+
+#: ../content/instalacio.py:55
+msgid "Teléfono"
+msgstr ""
+
+#: ../content/destacat.py:22
+msgid "Text"
+msgstr ""
+
+#: ../content/activitat_agenda.py:23
+msgid "Text de la url"
+msgstr ""
+
+#: ../content/activitat_agenda.py:22
+msgid "Text url"
+msgstr ""
+
+#: ../content/destacat.py:23
+msgid "The displayed text"
+msgstr ""
+
+#: ../content/competicio.py:48
+msgid "Tipo competición"
+msgstr ""
+
+#: ../content/competicio.py:33
+#: ../content/curs.py:34
+#: ../content/instalacio.py:70
+msgid "Título 2"
+msgstr ""
+
+#: ../content/activitat_agenda.py:28
+#: ../content/banner_esports.py:15
+msgid "URL"
+msgstr ""
+
+#: ../content/destacat.py:47
+msgid "URL pel link de més informació"
+msgstr ""
+
+#: ../content/activitat_agenda.py:29
+#: ../content/banner_esports.py:16
+msgid "URL que cal obrir"
+msgstr ""
+
+#: ../configure.zcml:39
+msgid "Uninstalls the genweb6.esports add-on."
+msgstr ""
+
+#: ../content/sync_folder.py:14
+msgid "XML Source Url"
+msgstr ""
+
+#: ../content/instalacio.py:30
+msgid "deportes"
+msgstr ""
+
+#: ../content/instalacio.py:25
+msgid "docanexo"
+msgstr ""
+
+#: ../configure.zcml:30
+msgid "genweb6.esports"
+msgstr ""
+
+#: ../configure.zcml:39
+msgid "genweb6.esports (uninstall)"
+msgstr ""
+
+#: ../content/destacat.py:46
+msgid "url"
+msgstr ""
