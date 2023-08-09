@@ -45,7 +45,7 @@
                                                         </a>
                                                     </p>
                                                     <p tal:condition="item/omesa_link">
-                                                        <a tal:attributes="href string:https://esportsonline.upc.edu/${item/omesa_link}" class="btn btn-sm btn-danger">Contracta online
+                                                        <a tal:attributes="href string:https://esportsonline.upc.edu/${item/omesa_link};" target="_blank" class="btn btn-sm btn-danger">Contracta online
                                                             <i class="bi bi-cart-check icon-white"></i>
                                                         </a>
                                                     </p>

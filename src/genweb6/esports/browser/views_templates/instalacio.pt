@@ -46,7 +46,7 @@
                                     <strong>Correu electrònic:</strong>
                                     <span tal:content="item/mail"></span>
                                 </p>
-                                <a tal:attributes="href string:https://esportsonline.upc.edu${item/link}" tal:condition="item/link" class="btn btn-danger mb-1">Contracta online
+                                <a tal:attributes="href string:https://esportsonline.upc.edu${item/link}" tal:condition="item/link" class="btn btn-danger mb-1" target="_blank">Contracta online
                                     <i class="bi bi-cart-check icon-white"></i>
                                 </a>
                                 <div class="clearfix"></div>

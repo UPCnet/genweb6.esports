@@ -135,7 +135,7 @@ div.custom-destacats .gw-tile.destacats3 .btn-banner-large div:not(.butonera) {
 }
 /* line 139, ../scss/views/_collection.scss */
 div.custom-destacats .gw-tile.destacats3 .btn-banner-large div:not(.butonera) .btn {
-  font-size: 16px;
+  font-size: 15px;
 }
 /* line 144, ../scss/views/_collection.scss */
 div.custom-destacats .gw-tile.destacats3 .btn-banner-large::before, div.custom-destacats .gw-tile.destacats3 .btn-banner-large::after {

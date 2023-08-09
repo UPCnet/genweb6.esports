@@ -66,7 +66,7 @@
                                     <span tal:content="item/level"></span>
                                 </p>
                                 <p tal:condition="item/link">
-                                    <a tal:attributes="href string:https://esportsonline.upc.edu/${item/link}" class="btn btn-danger">Contracta online
+                                    <a tal:attributes="href string:https://esportsonline.upc.edu/${item/link}" class="btn btn-danger" target="_blank">Contracta online
                                         <i class="bi bi-cart-check icon-white"></i>
                                     </a>
                                 </p>
