@@ -1,0 +1,190 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n" metal:use-macro="context/main_template/macros/master" i18n:domain="genweb6.esports">
+
+
+    <body class="competicio-view">
+
+        <metal:content-core fill-slot="content-core">
+            <metal:block define-macro="content-core">
+
+                <metal:block fill-slot="top_slot" tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                               disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+
+                <div tal:define="item view/get_info">
+                    <div class="row mb-4 mt-3">
+                        <div class="col-md-12">
+                            <div class="row">
+
+                                <div class="col-md-4 col-sm-12">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <img tal:attributes="src item/sport_img_url" tal:condition="item/sport_img_url" class="img-thumbnail"/>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div id="info" class="col-md-8">
+                                    <h2 tal:condition="item/sport" tal:content="item/sport" class="mb-0"/>
+                                    <h3 tal:define="sport_description item/sport_description;
+                                       competition item/competition" tal:condition="python:sport_description or competition" tal:content="string:${item/sport_description} (ref. ${item/competition})" class="text-primary"/>
+                                    <p class="mb-0" tal:condition="item/championship">
+                                        <strong>CAMPIONAT:</strong>
+                                        <span class="fw-normal" tal:content="item/championship"></span>
+                                    </p>
+                                    <p class="mb-0" tal:condition="item/competition_type">
+                                        <strong>Tipus competicio:</strong>
+                                        <span tal:content="item/competition_type"></span>
+                                    </p>
+                                    <p class="mb-0" tal:condition="item/gender">
+                                        <strong>Sexe:</strong>
+                                        <span tal:content="item/gender"></span>
+                                    </p>
+                                    <p class="mb-0" tal:condition="item/modality">
+                                        <strong>Modalitat:</strong>
+                                        <span tal:content="item/modality"></span>
+                                    </p>
+                                    <p class="mb-0" tal:condition="item/division">
+                                        <strong>Divisio:</strong>
+                                        <span tal:content="item/division"></span>
+                                    </p>
+                                    <p class="mb-0" tal:condition="item/group">
+                                        <strong>Grup:</strong>
+                                        <span tal:content="item/group"></span>
+                                    </p>
+                                    <p class="mb-0" tal:condition="item/location">
+                                        <strong>Lloc:</strong>
+                                        <span tal:content="item/location">Instal·lació i complexe</span>
+                                    </p>
+                                    <p class="mb-0" tal:condition="item/phase">
+                                        <strong>Fase:</strong>
+                                        <span tal:content="item/phase"></span>
+                                    </p>
+                                    <p class="mb-0" tal:define="start item/start_date;
+                                       end item/end_date" tal:condition="python:start or end">
+                                        <strong>Dates de realització:</strong>
+                                        <span tal:content="start"></span>
+                                        <span tal:condition="end">-                                            <span tal:content="end"></span>
+                                        </span>
+                                    </p>
+                                    <div class="mt-2">
+                                        <a tal:attributes="href string:https://esportsonline.upc.edu${item/link}" tal:condition="item/link" class="btn btn-success">Calendaris, Resultats i Classificacions
+                                        </a>
+                                    </div>
+                                    <div class="mt-2">
+                                        <p class="mb-0">
+                                            <a class="text-decoration-none link-primary" tal:attributes="href string:${item/rules}" tal:condition="item/rules">Consulta  la normativa<i class="bi bi-link-45deg"></i>
+                                            </a>
+                                        </p>
+                                        <p>
+                                            <a class="text-decoration-none link-primary" tal:attributes="href string:https://esportsonline.upc.edu${item/attachment}" tal:condition="item/attachment">Documentació associada a la competició  <i class="bi bi-file-earmark"></i>
+                                            </a>
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-5" tal:define="start item/inst_start_date; end item/inst_end_date">
+                            <h3 tal:condition="python: start or end" class="mb-3 text-primary">DATES D'INSCRIPCIÓ</h3>
+                            <p class="mb-0" tal:condition="start">
+                                <strong>Del:</strong>
+                                <span tal:content="start"></span>
+                            </p>
+                            <p tal:condition="end">
+                                <strong>Fins:</strong>
+                                <span tal:content="end"></span>
+                            </p>
+                            <div tal:condition="item/credits">
+                                <img tal:attributes="src string:${context/absolute_url}/++theme++genweb6.esports/img/${item/credits}.jpg" />
+                                <p>
+                                    <span>Per l'obtenció dels Crèdits es requereix un mínim de presència.</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-7">
+                            <h3 tal:condition="item/rates_title" class="mb-3 text-primary">QUOTA D'INSCRIPCIÓ</h3>
+                            <ul class="list-unstyled">
+                                <li tal:repeat="rate item/rates">
+                                    <tal:omit-tag tal:condition="rate/importe">
+                                        <p class="mb-0">
+                                            <strong>Preu per Equip:</strong>
+                                            <span tal:content="rate/importe"></span>
+                                            <span>€</span>
+                                        </p>
+                                    </tal:omit-tag>
+                                    <tal:omit-tag tal:condition="rate/fianzacur">
+                                        <p class="mb-0">
+                                            <strong>Fiança per Equip:</strong>
+                                            <span tal:content="rate/fianzacur"></span>
+                                            <span>€</span>
+                                        </p>
+                                    </tal:omit-tag>
+                                    <tal:omit-tag tal:condition="rate/impjugabo">
+                                        <p class="mb-0">
+                                            <strong>Preu Jugador UPC:</strong>
+                                            <span tal:content="rate/impjugabo"></span>
+                                            <span>€</span>
+                                        </p>
+                                    </tal:omit-tag>
+                                    <tal:omit-tag tal:condition="rate/fianzajugabo">
+                                        <p class="mb-0">
+                                            <strong>Fiança Jugador UPC:</strong>
+                                            <span tal:content="rate/fianzajugabo"></span>
+                                            <span>€</span>
+                                        </p>
+                                    </tal:omit-tag>
+                                    <tal:omit-tag tal:condition="rate/impjugnoabo">
+                                        <p class="mb-0">
+                                            <strong>Preu Jugador No UPC:</strong>
+                                            <span tal:content="rate/impjugnoabo"></span>
+                                            <span>€</span>
+                                        </p>
+                                    </tal:omit-tag>
+                                    <tal:omit-tag tal:condition="rate/fianzajugnoabo">
+                                        <p class="mb-0">
+                                            <strong>Fiança Jugador No UPC:</strong>
+                                            <span tal:content="rate/fianzajugnoabo"></span>
+                                            <span>€</span>
+                                        </p>
+                                    </tal:omit-tag>
+                                    <tal:omit-tag tal:condition="rate/impjugotro">
+                                        <p class="mb-0">
+                                            <strong>Preu Altres Jugadors:</strong>
+                                            <span tal:content="rate/impjugotro"></span>
+                                            <span>€</span>
+                                        </p>
+                                    </tal:omit-tag>
+                                    <tal:omit-tag tal:condition="rate/fianzajugotro">
+                                        <p class="mb-0">
+                                            <strong>Fiança Altres Jugadors:</strong>
+                                            <span tal:content="rate/fianzajugotro"></span>
+                                            <span>€</span>
+                                        </p>
+                                    </tal:omit-tag>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+                
+            </metal:block>
+        </metal:content-core>
+
+
+
+
+
+
+    </body>
+
+
+</html>

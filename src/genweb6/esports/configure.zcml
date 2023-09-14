@@ -2,6 +2,7 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="genweb6.esports">
 
@@ -14,8 +15,10 @@
   <!--<includeDependencies package="." />-->
 
   <include package=".browser" />
+  <include package=".content" />
 
   <include file="permissions.zcml" />
+  <include file="upgrades.zcml" />
 
   <genericsetup:registerProfile
       name="default"
@@ -40,6 +43,18 @@
       name="genweb6.esports-hiddenprofiles"
       />
 
+  <utility
+      factory=".keywords.KeywordsCategorizationUtility"
+      provides=".keywords.IKeywordsCategorizationUtility"
+      name="portal_keywords_categorization"
+      />
+
   <!-- -*- extra stuff goes here -*- -->
+
+    <plone:static
+        directory="theme"
+        type="theme"
+        name="genweb6.esports"
+        />
 
 </configure>

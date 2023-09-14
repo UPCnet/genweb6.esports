@@ -5,8 +5,7 @@
   "devDependencies": {
     "autoprefixer": "^10.3.7",
     "clean-css-cli": "^5.4.0",
-    "grunt": "^1.5.3",
-    "grunt-browser-sync": "^2.2.0",
+    "grunt": "^1.6.1",
     "grunt-contrib-compass": "^0.3.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-cssmin": "^2.2.1",

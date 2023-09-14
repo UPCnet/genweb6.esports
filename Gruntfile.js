@@ -29,7 +29,8 @@ module.exports = function (grunt) {
         watch: {
             css: {
                 files: [
-                    'scss/*'
+                    'scss/*',
+                    'scss/**/*'
                 ],
                 tasks: ['compass:css', 'concat:css', 'cssmin:css']
             },
@@ -59,7 +60,7 @@ module.exports = function (grunt) {
     });
 
     // grunt.loadTasks('tasks');
-    grunt.loadNpmTasks('grunt-browser-sync');
+    // grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-concat');

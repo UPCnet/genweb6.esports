@@ -1,0 +1,92 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n" metal:use-macro="context/main_template/macros/master" i18n:domain="genweb6.esports">
+
+
+    <body class="instalacio-view">
+
+
+        <metal:content-core fill-slot="content-core">
+            <metal:block define-macro="content-core">
+                <metal:block fill-slot="top_slot" tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                               disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+
+            <div tal:define="item view/get_info">
+                        <div class="row">
+                            <div class="col-md-4" id="imatges">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <img class="img-thumbnail mb-2" tal:condition="item/img" tal:attributes="src item/img_url"/>
+                                    </li>
+                                    <li>
+                                        <img class="img-thumbnail" tal:condition="item/inst_img" tal:attributes="src item/inst_img_url"/>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-8" id="info">
+                                <h2 tal:content="item/title" class="mb-0"></h2>
+                                <h3 tal:content="item/title2" class="text-primary"></h3>
+                                <p class="mb-0">
+                                    <span tal:content="item/address"></span>
+                                </p>
+                                <p>
+                                    <span tal:content="item/postcode"/>
+                                    <span tal:content="item/city"/>
+                                    <span tal:content="item/province"/>
+                                </p>
+                                <p tal:condition="item/phone" class="mb-0">
+                                    <strong>
+                                        Telèfon de contacte:
+                                    </strong>
+                                    <span tal:content="item/phone"></span>
+                                </p>
+                                <p tal:condition="item/mail">
+                                    <strong>Correu electrònic:</strong>
+                                    <span tal:content="item/mail"></span>
+                                </p>
+                                <a tal:attributes="href string:https://esportsonline.upc.edu${item/link}" tal:condition="item/link" class="btn btn-danger mb-1" target="_blank">Contracta online
+                                    <i class="bi bi-cart-check icon-white"></i>
+                                </a>
+                                <div class="clearfix"></div>
+                                <a tal:condition="item/attachment" class="text-decoration-none link-primary" tal:attributes="href string:https://esportsonline.upc.edu${item/attachment}">Consulta la normativa de la instal·lació <i class="bi bi-download"></i>
+                                </a>
+
+                                <h3 tal:condition="item/rates_title" class="text-primary mt-3 mb-2">PREUS</h3>
+                                <ul class="list-unstyled">
+                                    <li tal:repeat="rate item/rates" class="mb-3">
+                                        <p class="mb-0">
+                                            <strong tal:condition="rate/descrip" tal:content="rate/descrip"></strong>
+                                            <span tal:condition="rate/importe" tal:content="rate/importe"></span>
+                                        </p>
+                                        <p tal:condition="rate/memoweb" class="text-danger mb-0 fst-italic fw-normal" tal:content="rate/memoweb"></p>
+                                        <span tal:condition="rate/dates" tal:content="rate/dates" class="small"></span>
+                                    </li>
+                                </ul>
+
+                                <div tal:condition="item/observations" class="mb-3">
+                                    <strong>Observacions:</strong>
+                                    <span tal:content="item/observations"></span>
+                                </div>
+
+                                <div tal:condition="item/sports" class="mb-3">
+                                    <strong>Esports que es poden practicar:</strong>
+                                    <span tal:repeat="value item/sports">
+                                        <tal:omit-tag tal:content="value/item"></tal:omit-tag>
+                                        <tal:separator condition="not: repeat/value/end">,</tal:separator>
+                                    </span>
+                                </div>
+
+                                <div tal:condition="item/details">
+                                    <span tal:replace="structure item/details"/>
+                                </div>
+                            </div>
+                        </div>
+
+            </div>                
+
+            </metal:block>
+        </metal:content-core>    
+    </body>
+</html>

@@ -18,4 +18,86 @@
       directory="static"
       />
 
+    <!-- Content Management Menu (Toolbar Item) -->
+    <browser:menu
+        id="sync_content_menu"
+        title=""
+        class=".menu.SyncContentMenu"
+        />
+
+    <adapter for="* *"
+        name="sync_content_menu"
+        factory=".menu.SyncContentSubMenuItem"
+        provides="plone.app.contentmenu.interfaces.IContentMenuItem" />
+
+    <!-- Import views -->
+
+    <browser:page
+        name="sync_all_content"
+        for="*"
+        class="genweb6.esports.browser.import.SyncAllContentView"
+        layer="genweb6.esports.interfaces.IGenweb6EsportsLayer"
+        permission="genweb.webmaster"
+        />
+
+    <browser:page
+        name="sync_content"
+        for="genweb6.esports.content.sync_folder.ISyncFolder"
+        class="genweb6.esports.browser.import.SyncContentView"
+        layer="genweb6.esports.interfaces.IGenweb6EsportsLayer"
+        permission="genweb.webmaster"
+        />
+
+    <browser:page
+        name="clean"
+        for="genweb6.esports.content.sync_folder.ISyncFolder"
+        class="genweb6.esports.browser.import.CleanSyncFolderView"
+        layer="genweb6.esports.interfaces.IGenweb6EsportsLayer"
+        permission="genweb.webmaster"
+        />
+
+    <!-- Content Views -->
+    <!-- Usar para la colección -->
+    <browser:page
+        name="collection_view"
+        for="plone.app.contenttypes.interfaces.ICollection"
+        template="views_templates/collection.pt"
+        class=".views.collection.EsportsCollectionView"
+        permission="zope2.View"
+        layer="..interfaces.IGenweb6EsportsLayer" />
+
+    <browser:page
+        name="curs_view"
+        for="genweb6.esports.content.curs.ICurs"
+        template="views_templates/curs.pt"
+        class=".views.curs.CursView"
+        permission="zope2.View"
+        layer="..interfaces.IGenweb6EsportsLayer" />
+
+    <browser:page
+        name="competicio_view"
+        for="genweb6.esports.content.competicio.ICompeticio"
+        class=".views.competicio.CompeticioView"
+        template="views_templates/competicio.pt"
+        permission="zope2.View"
+        layer="..interfaces.IGenweb6EsportsLayer" />
+
+    <browser:page
+        name="instalacio_view"
+        for="genweb6.esports.content.instalacio.IInstalacio"
+        class=".views.instalacio.InstalacioView"
+        template="views_templates/instalacio.pt"
+        permission="zope2.View"
+        layer="..interfaces.IGenweb6EsportsLayer" />
+
+    <!-- Behaviors -->
+    <plone:behavior
+        title="Lead image"
+        name="esports.leadimage"
+        description="Adds lead image to collection"
+        provides=".behaviors.ILeadImage"
+        factory=".behaviors.LeadImage"
+        for="plone.app.contenttypes.interfaces.ICollection"
+        />
+
 </configure>
