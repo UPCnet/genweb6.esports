@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
+from zope.interface import implementer
+from plone.dexterity.content import Container
 from zope import schema
 from genweb6.esports.content.interfaces import IOmesaContent
 from zope.i18nmessageid import MessageFactory
 _ = MessageFactory("serveiesports")
-from plone.dexterity.content import Container
-from zope.interface import implementer
+
 
 class ICompeticio(IOmesaContent):
     """Dexterity-Schema for Competicio"""
@@ -133,6 +134,7 @@ class ICompeticio(IOmesaContent):
         title=_(u"Tarifas"),
         required=False
     )
+
 
 @implementer(ICompeticio)
 class Competicio(Container):

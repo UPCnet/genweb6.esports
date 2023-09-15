@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Products.Five.browser import BrowserView
 from zope.component.hooks import getSite
 from genweb6.esports.utils import get_list_from_string
@@ -22,11 +23,11 @@ class CompeticioView(BrowserView):
             rate = rates[0]
             if any(value is not False for value in rate.keys()):
                 return True
-            
+
             return False
-        except:
+        except Exception:
             return False
-        
+
     def get_credits(self):
         try:
             value = self.context.creditos.strip().replace(',', '.')
@@ -34,7 +35,7 @@ class CompeticioView(BrowserView):
                 return None
             else:
                 credit_value = str(int(float(value)))
-        except:
+        except Exception:
             credit_value = 'H'
 
         if credit_value == 'H':
@@ -59,7 +60,7 @@ class CompeticioView(BrowserView):
 
             return location
 
-        except:
+        except Exception:
             return None
 
     def get_info(self):

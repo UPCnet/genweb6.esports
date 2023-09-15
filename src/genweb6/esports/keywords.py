@@ -6,7 +6,7 @@ from zope.component import getUtility
 from zope.interface import Attribute, Interface
 from zope.schema.interfaces import IVocabularyFactory
 from zope.interface import implementer
-from genweb6.esports.utils import make_curl_request
+import requests
 
 
 class IKeywordsCategorizationUtility(Interface):
@@ -47,8 +47,9 @@ class KeywordsCategorizationUtility(SimpleItem):
         self.categories = OOBTree()
         for url in self.filters:
             try:
-                data = make_curl_request(url)
-                xml = etree.XML(data)
+                data = requests.get(url)
+                tree = etree.fromstring(data.content)
+                xml = tree
                 if xml.tag != 'filtros':
                     filters = xml.findall('filtros')
                     xml = filters[0]
@@ -61,7 +62,7 @@ class KeywordsCategorizationUtility(SimpleItem):
                             current.append(item.text)
                     current.sort()
                     self.categories[filterid] = current
-            except:
+            except Exception:
                 pass
 
     def keywords(self, checked=[]):
@@ -80,7 +81,7 @@ class KeywordsCategorizationUtility(SimpleItem):
             if len(self.categories[filterid]) > 0:
                 keywords_by_filter.append({'title': filtertitle,
                                            'value': filterid,
-                                           'header':  True})
+                                           'header': True})
                 for item in self.categories[filterid]:
                     filter_terms.append(item)
                     keywords_by_filter.append({'title': item,
@@ -96,7 +97,7 @@ class KeywordsCategorizationUtility(SimpleItem):
             altres.sort()
             keywords_by_filter.append({'title': 'Altres',
                                        'value': 'altres',
-                                       'header':  True})
+                                       'header': True})
             for item in altres:
                 keywords_by_filter.append({'title': item,
                                            'value': item,

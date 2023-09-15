@@ -1,7 +1,6 @@
-from Products.Five.browser import BrowserView
+# -*- coding: utf-8 -*-
 from zope.component.hooks import getSite
 from plone.app.contenttypes.browser.collection import CollectionView
-
 
 
 class EsportsCollectionView(CollectionView):
@@ -16,8 +15,10 @@ class EsportsCollectionView(CollectionView):
     def get_info(self):
         """ Get needed info in the template """
 
-        
-        leadimage = '' if not self.context.picture else self.context.absolute_url() + '/@@images/picture'
+        if not self.context.picture:
+            leadimage = ''
+        else:
+            leadimage = self.context.absolute_url() + '/@@images/picture'
         text = '' if not self.context.text else self.context.text.output
         info = {
             'title': self.context.Title(),
@@ -25,7 +26,7 @@ class EsportsCollectionView(CollectionView):
             'text': text,
         }
         return info
-    
+
     def get_items(self):
         results = self.results()
         items = []
@@ -40,7 +41,7 @@ class EsportsCollectionView(CollectionView):
                 img = remote_url + getattr(obj, 'img')
             elif hasattr(obj, 'imagen'):
                 img = remote_url + getattr(obj, 'imagen')
-            
+
             items.append({
                 'title': obj.Title(),
                 'image': img,
@@ -50,7 +51,7 @@ class EsportsCollectionView(CollectionView):
             })
 
         return items
-    
+
     def results(self, **kwargs):
         kwargs.setdefault('batch', True)
         kwargs.setdefault('b_size', self.b_size)
