@@ -2,3 +2,5 @@
 setuptools
 zc.buildout
 bleach
+flake8
+tox

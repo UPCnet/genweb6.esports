@@ -1,4 +1,4 @@
-from plone import api
+# -*- coding: utf-8 -*-
 from plone.app.contentmenu.interfaces import IActionsMenu, IActionsSubMenuItem
 from plone.app.contentmenu.menu import BrowserMenu, BrowserSubMenuItem
 from zope.interface import implementer

@@ -49,17 +49,18 @@ def post_install(context):
         return
 
     gestio_container = createContentInContainer(ca_container, 'Folder', title='Gestió')
-    publish_object(gestio_container) 
+    publish_object(gestio_container)
     setattr(gestio_container, 'exclude_from_nav', True)
 
     for item in DATA:
-        obj = createContentInContainer(gestio_container, 'SyncFolder',
-                                 title=item['title'], id=item['id'], importer=item['importer'], url=item['xml'])
+        obj = createContentInContainer(
+            gestio_container, 'SyncFolder', title=item['title'],
+            id=item['id'],
+            importer=item['importer'],
+            url=item['xml'])
         publish_object(obj)
 
 
 def uninstall(context):
     """Uninstall script"""
     # Do something at the end of the uninstallation of this package.
- 
-

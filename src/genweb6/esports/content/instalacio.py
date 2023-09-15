@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
+from zope.interface import implementer
+from plone.dexterity.content import Container
 from zope import schema
 from genweb6.esports.content.interfaces import IOmesaContent
 from zope.i18nmessageid import MessageFactory
 _ = MessageFactory("serveiesports")
-from plone.dexterity.content import Container
-from zope.interface import implementer
-
 
 
 class IInstalacio(IOmesaContent):
@@ -100,6 +99,7 @@ class IInstalacio(IOmesaContent):
         title=_(u"Observaciones"),
         required=False
     )
+
 
 @implementer(IInstalacio)
 class Instalacio(Container):

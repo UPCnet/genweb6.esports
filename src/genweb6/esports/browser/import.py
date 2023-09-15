@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import xml.etree.ElementTree as ET
 from urllib.parse import unquote
 
 import bleach
@@ -33,10 +32,9 @@ class CleanSyncFolderView(BrowserView):
 
 class SyncContentView(BrowserView):
     """ Sync Content from Omesa data """
-    """ 
-    Directly handwriten over the content field 'importer'. 
-    This is set automatically when installing the package, but should we make the field uneditable?
-    By doing so, it would be 'unbreakable' by human beings.
+    """
+    Directly handwriten over the content field 'importer'.
+    This is set automatically when installing the package.
     """
 
     @property
@@ -67,7 +65,8 @@ class SyncAllContentView(BrowserView):
                 f'{view_url}/sync_content')
             sync_content_view.render_import()
 
-        subjects_tool = getUtility(IKeywordsCategorizationUtility, 'portal_keywords_categorization')
+        subjects_tool = getUtility(
+            IKeywordsCategorizationUtility, 'portal_keywords_categorization')
         subjects_tool.update()
 
         self.request.response.redirect(self.context.absolute_url())
@@ -85,9 +84,8 @@ class ImporterView(BrowserView):
             self.context._delObject(item_id)
 
     def get_XML(self):
-        """  
-        Get data in XML format from OMESA
-        """
+        """  Get data in XML format from OMESA """
+
         data = requests.get(self.context.url)
         tree = etree.fromstring(data.content)
         self.xml = tree
@@ -192,11 +190,13 @@ class ImporterView(BrowserView):
 
             print('Imported %s at %s' %
                   (self.ptype, obj.absolute_url()))
-
+        msg = (f"Importació de {self.ptype_literal} finalitzada, "
+               f"s'han importat {len(items)} {self.ptype_literal}")
         self.context.plone_utils.addPortalMessage(
-            f"Importació de {self.ptype_literal} finalitzada, s'han importat {len(items)} {self.ptype_literal}")
+            msg)
         self.request.response.redirect(
             f'{self.context.absolute_url()}/folder_contents')
+
 
 class ActivitatImporter(ImporterView):
     """ Activitat - Curs """

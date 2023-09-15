@@ -1,6 +1,6 @@
+# -*- coding: utf-8 -*-
 from Products.Five.browser import BrowserView
-from genweb6.esports.utils import  get_list_from_string
-
+from genweb6.esports.utils import get_list_from_string
 
 
 class CursView(BrowserView):
@@ -17,7 +17,7 @@ class CursView(BrowserView):
                 return None
             else:
                 credit_value = str(int(float(value)))
-        except:
+        except Exception:
             credit_value = 'H'
 
         if credit_value == 'H':
@@ -25,16 +25,15 @@ class CursView(BrowserView):
         else:
             return credit_value + 'ETCS'
 
-    
     def get_location(self):
         """ Adds comma to concatenation instalacion and complex"""
         location = []
         try:
-            if self.context.lugar is not '':
+            if self.context.lugar != '':
                 location.append(self.context.lugar)
-            if self.context.complejo is not '':
+            if self.context.complejo != '':
                 location.append(self.context.complejo)
-            if self.context.instalacion is not '':
+            if self.context.instalacion != '':
                 location.append(self.context.instalacion)
 
             if len(location) == 0:
@@ -42,9 +41,8 @@ class CursView(BrowserView):
             else:
                 location = ', '.join(location)
                 return location
-        except:
+        except Exception:
             return None
-
 
     def get_info(self):
         info = {

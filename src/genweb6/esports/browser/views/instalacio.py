@@ -1,6 +1,6 @@
+# -*- coding: utf-8 -*-
 from Products.Five.browser import BrowserView
 from genweb6.esports.utils import get_list_from_string
-
 
 
 class InstalacioView(BrowserView):
@@ -10,28 +10,27 @@ class InstalacioView(BrowserView):
         self.request = request
         self.base_url = 'https://esportsonline.upc.edu/'
 
-        
     def check_rates_title(self):
         """ Check if there is any rate available """
         try:
             rates = get_list_from_string(self.context.tarifas)
             if not rates:
                 return False
-            
+
             rate = rates[0]
             if any(value is not False for value in rate.keys()):
                 return True
-        
+
             return False
-        except:
+        except Exception:
             return False
-        
+
     def get_tags(self):
         try:
             return eval(self.context.etiquetas)
-        except:
+        except Exception:
             return []
-        
+
     def get_info(self):
         info = {
             'img': self.context.imagen,
