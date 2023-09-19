@@ -12,7 +12,6 @@
     Be careful if you use general includeDependencies, it can have side effects!
     Better import explicit packages or configurations ;)
   -->
-  <!--<includeDependencies package="." />-->
 
   <include package=".browser" />
   <include package=".content" />
