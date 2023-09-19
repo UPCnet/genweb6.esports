@@ -27,6 +27,7 @@ class TestSetup(unittest.TestCase):
         else:
             self.installer = api.portal.get_tool('portal_quickinstaller')
 
+
     def test_product_installed(self):
         """Test if genweb6.esports is installed."""
         self.assertTrue(self.installer.is_product_installed(
