@@ -6,7 +6,6 @@ from plone.dexterity.utils import createContentInContainer
 from zope.interface import alsoProvides
 from plone.protect.interfaces import IDisableCSRFProtection
 from genweb6.esports.utils import publish_object
-from plone.app.multilingual.interfaces import ILanguageIndependentFolder
 
 
 @implementer(INonInstallable)
@@ -46,7 +45,7 @@ def post_install(context):
         ca_container = site.unrestrictedTraverse('ca')
     else:
         return
-    
+
     ids = ca_container.objectIds()
 
     # Return if 'gestio' folder already exists.
