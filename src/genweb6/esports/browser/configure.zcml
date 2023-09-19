@@ -25,10 +25,12 @@
         class=".menu.SyncContentMenu"
         />
 
-    <adapter for="* *"
+    <adapter
+        for="* genweb6.esports.interfaces.IGenweb6EsportsLayer"
         name="sync_content_menu"
         factory=".menu.SyncContentSubMenuItem"
-        provides="plone.app.contentmenu.interfaces.IContentMenuItem" />
+        provides="plone.app.contentmenu.interfaces.IContentMenuItem"
+        />
 
     <!-- Import views -->
 
