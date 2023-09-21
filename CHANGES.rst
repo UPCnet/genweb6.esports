@@ -2,11 +2,12 @@ Changelog
 =========
 
 
-1.2 (unreleased)
+1.2 (2023-09-21)
 ----------------
 
-- Nothing changed yet.
-
+* Merge remote-tracking branch 'origin/develop' [Ruben Padilla Mateu]
+* [FIX] Lints and errors [Ruben Padilla Mateu]
+* [ADD] CI [Ruben Padilla Mateu]
 
 1.1 (2023-09-14)
 ----------------
