@@ -25,10 +25,12 @@
         class=".menu.SyncContentMenu"
         />
 
-    <adapter for="* *"
+    <adapter
+        for="* genweb6.esports.interfaces.IGenweb6EsportsLayer"
         name="sync_content_menu"
         factory=".menu.SyncContentSubMenuItem"
-        provides="plone.app.contentmenu.interfaces.IContentMenuItem" />
+        provides="plone.app.contentmenu.interfaces.IContentMenuItem"
+        />
 
     <!-- Import views -->
 
@@ -37,7 +39,7 @@
         for="*"
         class="genweb6.esports.browser.import.SyncAllContentView"
         layer="genweb6.esports.interfaces.IGenweb6EsportsLayer"
-        permission="genweb.webmaster"
+        permission="cmf.ManagePortal"
         />
 
     <browser:page
@@ -45,7 +47,7 @@
         for="genweb6.esports.content.sync_folder.ISyncFolder"
         class="genweb6.esports.browser.import.SyncContentView"
         layer="genweb6.esports.interfaces.IGenweb6EsportsLayer"
-        permission="genweb.webmaster"
+        permission="cmf.ManagePortal"
         />
 
     <browser:page
@@ -53,7 +55,7 @@
         for="genweb6.esports.content.sync_folder.ISyncFolder"
         class="genweb6.esports.browser.import.CleanSyncFolderView"
         layer="genweb6.esports.interfaces.IGenweb6EsportsLayer"
-        permission="genweb.webmaster"
+        permission="cmf.ManagePortal"
         />
 
     <!-- Content Views -->
@@ -89,15 +91,5 @@
         template="views_templates/instalacio.pt"
         permission="zope2.View"
         layer="..interfaces.IGenweb6EsportsLayer" />
-
-    <!-- Behaviors -->
-    <plone:behavior
-        title="Lead image"
-        name="esports.leadimage"
-        description="Adds lead image to collection"
-        provides=".behaviors.ILeadImage"
-        factory=".behaviors.LeadImage"
-        for="plone.app.contenttypes.interfaces.ICollection"
-        />
 
 </configure>
