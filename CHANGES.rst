@@ -2,11 +2,11 @@ Changelog
 =========
 
 
-1.3 (unreleased)
+1.3 (2023-09-22)
 ----------------
 
-- Nothing changed yet.
-
+* Merge remote-tracking branch 'origin/develop' [Ruben Padilla Mateu]
+* [DEL] Collection behaviors [Ruben Padilla Mateu]
 
 1.2 (2023-09-21)
 ----------------
