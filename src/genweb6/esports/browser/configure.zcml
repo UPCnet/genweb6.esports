@@ -92,14 +92,4 @@
         permission="zope2.View"
         layer="..interfaces.IGenweb6EsportsLayer" />
 
-    <!-- Behaviors -->
-    <plone:behavior
-        title="Lead image"
-        name="esports.leadimage"
-        description="Adds lead image to collection"
-        provides=".behaviors.ILeadImage"
-        factory=".behaviors.LeadImage"
-        for="plone.app.contenttypes.interfaces.ICollection"
-        />
-
 </configure>
