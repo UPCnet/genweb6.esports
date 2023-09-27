@@ -13,10 +13,6 @@
                     <div class="col-md-12">
                         <div class="row">
                             <p tal:replace="structure item/text">Content</p>
-                            <div class="col-md-4" style="padding: 35px 10px 10px 10px">
-                                <img tal:attributes="src item/leadimage">
-                                </div>
-                                <div class="clearfix"></div>
                             </div>
                         </div>
                     </div>

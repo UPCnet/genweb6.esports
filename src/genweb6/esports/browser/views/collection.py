@@ -15,14 +15,9 @@ class EsportsCollectionView(CollectionView):
     def get_info(self):
         """ Get needed info in the template """
 
-        if not self.context.picture:
-            leadimage = ''
-        else:
-            leadimage = self.context.absolute_url() + '/@@images/picture'
         text = '' if not self.context.text else self.context.text.output
         info = {
             'title': self.context.Title(),
-            'leadimage': leadimage,
             'text': text,
         }
         return info
