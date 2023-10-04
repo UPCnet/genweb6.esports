@@ -2,11 +2,11 @@ Changelog
 =========
 
 
-1.5 (unreleased)
+1.5 (2023-10-04)
 ----------------
 
-- Nothing changed yet.
-
+* Merge remote-tracking branch 'origin/develop' [Ruben Padilla Mateu]
+* [FIX] genweb master permissions [Ruben Padilla Mateu]
 
 1.4 (2023-09-27)
 ----------------
