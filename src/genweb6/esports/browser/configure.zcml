@@ -39,7 +39,7 @@
         for="*"
         class="genweb6.esports.browser.import.SyncAllContentView"
         layer="genweb6.esports.interfaces.IGenweb6EsportsLayer"
-        permission="cmf.ManagePortal"
+        permission="genweb.webmaster"
         />
 
     <browser:page
@@ -47,7 +47,7 @@
         for="genweb6.esports.content.sync_folder.ISyncFolder"
         class="genweb6.esports.browser.import.SyncContentView"
         layer="genweb6.esports.interfaces.IGenweb6EsportsLayer"
-        permission="cmf.ManagePortal"
+        permission="genweb.webmaster"
         />
 
     <browser:page
@@ -55,7 +55,7 @@
         for="genweb6.esports.content.sync_folder.ISyncFolder"
         class="genweb6.esports.browser.import.CleanSyncFolderView"
         layer="genweb6.esports.interfaces.IGenweb6EsportsLayer"
-        permission="cmf.ManagePortal"
+        permission="genweb.webmaster"
         />
 
     <!-- Content Views -->
