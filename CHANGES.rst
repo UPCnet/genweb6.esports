@@ -2,11 +2,11 @@ Changelog
 =========
 
 
-1.6 (unreleased)
+1.6 (2023-10-10)
 ----------------
 
-- Nothing changed yet.
-
+* Merge remote-tracking branch 'origin/develop' [Ruben Padilla Mateu]
+* [ADD] Description box in Omesa content [Ruben Padilla Mateu]
 
 1.5 (2023-10-04)
 ----------------
