@@ -173,7 +173,11 @@
                         </div>
 
                     </div>
-
+                        <div class="row" tal:condition="item/html_descrip">
+                            <div class="html-description">
+                                <span tal:replace="structure item/html_descrip"></span>
+                            </div>
+                        </div>
                 </div>
                 
             </metal:block>

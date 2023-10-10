@@ -2,25 +2,19 @@
     xmlns:metal="http://xml.zope.org/namespaces/metal"
     xmlns:tal="http://xml.zope.org/namespaces/tal"
     xmlns:i18n="http://xml.zope.org/namespaces/i18n" metal:use-macro="context/main_template/macros/master" i18n:domain="genweb6.esports">
-
-
     <body class="curs-view">
-
         <metal:content-core fill-slot="content-core">
             <metal:block define-macro="content-core">
-
                 <metal:block fill-slot="top_slot" tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
-                               disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+                           disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
                 <div tal:define="item view/get_info">
                     <div class="row">
-
                         <div id="imatges" class="col-md-4">
                             <ul class="list-unstyled">
                                 <li tal:condition="item/img">
                                     <img tal:attributes="src item/img_url" class="img-thumbnail">
                                     </li>
                                 </ul>
-
                                 <div tal:define="rate item/rates" tal:condition="rate" class="mt-3">
                                     <h3 class="text-primary mb-2 fw-normal">PREUS</h3>
                                     <ul class="list-unstyled">
@@ -39,16 +33,15 @@
                                     </ul>
                                 </div>
                             </div>
-
                             <div id="info" class="col-md-8">
                                 <h2 tal:condition="item/activity" tal:content="item/activity" class="mb-0"/>
                                 <h3 tal:define="description item/description;
-                             course item/course" tal:condition="python:description or course" tal:content="string:${item/description} (ref. ${item/course})" class="text-primary"/>
+                           course item/course" tal:condition="python:description or course" tal:content="string:${item/description} (ref. ${item/course})" class="text-primary"/>
                                 <p tal:content="item/texper" class="fw-bold mb-0"/>
                                 <p tal:content="item/texdiasem" class="fw-bold mb-0"/>
                                 <p tal:content="item/texhor" class="fw-bold mb-0"/>
                                 <p tal:define="name item/name;
-                            lastnames item/lastnames" tal:condition="python:name or lastnames">
+                           lastnames item/lastnames" tal:condition="python:name or lastnames">
                                     <strong>Professor:</strong>
                                     <span tal:content="item/name" tal:condition="item/name"></span>
                                     <span tal:content="item/lastnames" tal:condition="item/lastnames"></span>
@@ -75,7 +68,7 @@
                                     </a>
                                 </p>
                                 <h3 tal:define="positions item/positions;
-                            credits item/credits" tal:condition="python:positions or credits" class="text-primary fw-normal mb-0 mt-4">PLACES</h3>
+                           credits item/credits" tal:condition="python:positions or credits" class="text-primary fw-normal mb-0 mt-4">PLACES</h3>
                                 <p tal:condition="item/positions">Totals:
                                     <span tal:content="item/positions"></span>
                                 </p>
@@ -87,13 +80,17 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="row" tal:condition="item/html_descrip">
+                            <div class="html-description">
+                                <span tal:replace="structure item/html_descrip"></span>
+                            </div>
+                        </div>
                     </div>
+                </metal:block>
+            </metal:content-core>
+        </body>
+    </html>
 
 
-            </metal:block>
-        </metal:content-core>
 
 
-    </body>
-</html>

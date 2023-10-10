@@ -89,6 +89,6 @@ class CompeticioView(BrowserView):
             'credits': self.get_credits(),
             'rates': get_list_from_string(self.context.tarifas),
             'rates_title': self.check_rates_title(),
-            'description': self.context.descripcion,
+            'html_descrip': self.context.descripcion,
         }
         return info

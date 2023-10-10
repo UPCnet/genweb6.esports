@@ -168,3 +168,11 @@ div.custom-destacats .gw-tile.destacats3 .link-banner .btn-banner-large div h2 {
 div.custom-destacats .gw-tile.destacats3 .link-banner .btn-banner-large:after {
   background: var(--bs-gray-100);
 }
+
+/* line 1, ../scss/views/_curs.scss */
+body.section-gestio .html-description {
+  padding: 15px 20px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+}
