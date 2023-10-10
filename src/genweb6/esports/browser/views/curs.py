@@ -64,6 +64,7 @@ class CursView(BrowserView):
             'attachment': self.context.docanexo,
             'positions': self.context.plazas,
             'credits': self.get_credits(),
+            'html_descrip': self.context.descrip,
         }
 
         return info
