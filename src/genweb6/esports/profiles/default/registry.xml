@@ -1,9 +1,7 @@
 <?xml version="1.0"?>
 <registry>
 
-  <records
-    interface="Products.CMFPlone.interfaces.IBundleRegistry"
-    prefix="plone.bundles/esports-bundle">
+  <records interface="Products.CMFPlone.interfaces.IBundleRegistry" prefix="plone.bundles/esports-bundle">
 
     <value key="enabled">True</value>
     <value key="compile">True</value>
@@ -15,4 +13,15 @@
 
   </records>
 
+  <!--  <records name="plone.app.querystring.field.fecini" interface="plone.app.querystring.interfaces.IQueryField" prefix="plone.app.querystring.field.fecini">
+        <value key="title">Data Omesa</value>
+        <value key="description">Custom start date index</value>
+        <value key="enabled">False</value>
+        <value key="sortable">True</value>
+        <value key="operations">
+            <element>plone.app.querystring.operation.date.range</element>
+        </value>
+        <value key="group">Custom</value>
+    </records>
+ -->
 </registry>

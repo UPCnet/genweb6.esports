@@ -5,6 +5,7 @@ import bleach
 import requests
 import transaction
 from DateTime import DateTime
+from datetime import datetime
 from genweb6.esports.keywords import IKeywordsCategorizationUtility
 from genweb6.esports.utils import publish_object
 from lxml import etree
@@ -103,7 +104,19 @@ class ImporterView(BrowserView):
         return int(value)
 
     def set_date(self, value):
-        return DateTime(value).asdatetime()
+        date = ''
+
+        #Parse dates so Plone can sort by them
+        try:
+            date_object = datetime.strptime(value, '%d/%m/%Y')
+            parsed_date_string = date_object.strftime('%Y-%m-%d')
+            date = parsed_date_string
+
+        except ValueError:
+            print('Incorrect date format')
+            date = value
+            
+        return DateTime(date).asdatetime()
 
     def set_cdata(self, value):
         ALLOWED_TAGS = ['a', 'p', 'b', 'strong', 'br']
@@ -165,6 +178,10 @@ class ImporterView(BrowserView):
 
             setter = getattr(self, 'set_%s' % field_mapping['ftype'])
             _value = setter(origin_field_value)
+            
+            if origin_field_name == 'fecini':
+                obj.setEffectiveDate(_value)
+            
             setattr(obj, field_mapping['name'], _value)
 
     def render(self):
@@ -222,8 +239,8 @@ class ActivitatImporter(ImporterView):
         'complejo': {'ftype': 'string', 'name': 'complejo'},
         'instalacion': {'ftype': 'string', 'name': 'instalacion'},
         'estado': {'ftype': 'string', 'name': 'estado'},
-        'fecini': {'ftype': 'string', 'name': 'fecini'},
-        'fecfin': {'ftype': 'string', 'name': 'fecfin'},
+        'fecini': {'ftype': 'date', 'name': 'fecini'},
+        'fecfin': {'ftype': 'date', 'name': 'fecfin'},
         'nivel': {'ftype': 'string', 'name': 'nivel'},
         'plazas': {'ftype': 'string', 'name': 'plazas'},
         'numcred': {'ftype': 'string', 'name': 'numcred'},
@@ -346,8 +363,8 @@ class CompeticioImporter(ImporterView):
         'grupo': {'ftype': 'string', 'name': 'grupo'},
         'insta': {'ftype': 'string', 'name': 'insta'},
         'complejo': {'ftype': 'string', 'name': 'complejo'},
-        'fecini': {'ftype': 'string', 'name': 'fecini'},
-        'fecfin': {'ftype': 'string', 'name': 'fecfin'},
+        'fecini': {'ftype': 'date', 'name': 'fecini'},
+        'fecfin': {'ftype': 'date', 'name': 'fecfin'},
         'feciniins': {'ftype': 'string', 'name': 'feciniins'},
         'fecfinins': {'ftype': 'string', 'name': 'fecfinins'},
         'creditos': {'ftype': 'string', 'name': 'creditos'},

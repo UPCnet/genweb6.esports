@@ -85,12 +85,12 @@ class ICompeticio(IOmesaContent):
         required=False
     )
 
-    fecini = schema.TextLine(
+    fecini = schema.Datetime(
         title=_(u"Fecha inicio"),
         required=False
     )
 
-    fecfin = schema.TextLine(
+    fecfin = schema.Datetime(
         title=_(u"Fecha final"),
         required=False
     )
