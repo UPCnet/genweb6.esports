@@ -2,11 +2,11 @@ Changelog
 =========
 
 
-1.7 (unreleased)
+1.7 (2023-10-26)
 ----------------
 
-- Nothing changed yet.
-
+* Merge remote-tracking branch 'origin/develop' [Ruben Padilla Mateu]
+* Set initial date to effective date [Ruben Padilla Mateu]
 
 1.6 (2023-10-10)
 ----------------
