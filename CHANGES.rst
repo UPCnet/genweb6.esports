@@ -2,11 +2,13 @@ Changelog
 =========
 
 
-1.8 (unreleased)
+1.8 (2023-11-09)
 ----------------
 
-- Nothing changed yet.
-
+* Merge remote-tracking branch 'origin/develop' [Ruben Padilla Mateu]
+* Added new index - sort key - Initial date [Ruben Padilla Mateu]
+* Added set equals initial date view [Ruben Padilla Mateu]
+* Added initial date behavior to document image [Ruben Padilla Mateu]
 
 1.7 (2023-10-26)
 ----------------
