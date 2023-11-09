@@ -92,4 +92,22 @@
         permission="zope2.View"
         layer="..interfaces.IGenweb6EsportsLayer" />
 
+    <plone:behavior
+        title="Adds start date to activities"
+        name="esports.fecini"
+        description="Set an initial date"
+        provides="genweb6.esports.browser.behaviors.initialdate.IInitialDate"
+        factory="genweb6.esports.browser.behaviors.initialdate.InitialDate"
+        for="plone.dexterity.interfaces.IDexterityContent"
+        />
+
+    <browser:page
+        name="setfecini"
+        for="*"
+        class="genweb6.esports.browser.helpers.SetEqualDates"
+        layer="genweb6.esports.interfaces.IGenweb6EsportsLayer"
+        permission="cmf.ManagePortal"
+        />
+        
+
 </configure>
