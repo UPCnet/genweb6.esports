@@ -37,13 +37,11 @@ class EsportsCollectionView(CollectionView):
             elif hasattr(obj, 'imagen'):
                 img = remote_url + getattr(obj, 'imagen')
 
-            items.append({
-                'title': obj.Title(),
-                'image': img,
-                'url': obj.absolute_url(),
-                'omesa_link': '' if not hasattr(obj, 'enlace') else obj.enlace,
-                'dates': '' if not hasattr(obj, 'texper') else obj.texper
-            })
+            items.append(
+                {'title': obj.Title(),
+                 'image': img, 'url': obj.absolute_url(),
+                 'omesa_link': '' if not hasattr(obj, 'enlace') else obj.enlace,
+                 'dates': '' if not hasattr(obj, 'texper') else obj.texper})
 
         return items
 

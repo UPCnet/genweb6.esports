@@ -106,7 +106,7 @@ class ImporterView(BrowserView):
     def set_date(self, value):
         date = ''
 
-        #Parse dates so Plone can sort by them
+        # Parse dates so Plone can sort by them
         try:
             date_object = datetime.strptime(value, '%d/%m/%Y')
             parsed_date_string = date_object.strftime('%Y-%m-%d')
@@ -115,7 +115,7 @@ class ImporterView(BrowserView):
         except ValueError:
             print('Incorrect date format')
             date = value
-            
+
         return DateTime(date).asdatetime()
 
     def set_cdata(self, value):
@@ -178,10 +178,7 @@ class ImporterView(BrowserView):
 
             setter = getattr(self, 'set_%s' % field_mapping['ftype'])
             _value = setter(origin_field_value)
-            
-            if origin_field_name == 'fecini':
-                obj.setEffectiveDate(_value)
-            
+
             setattr(obj, field_mapping['name'], _value)
 
     def render(self):

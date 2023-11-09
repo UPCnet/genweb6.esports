@@ -13,8 +13,8 @@
 
   </records>
 
-  <!--  <records name="plone.app.querystring.field.fecini" interface="plone.app.querystring.interfaces.IQueryField" prefix="plone.app.querystring.field.fecini">
-        <value key="title">Data Omesa</value>
+   <records name="plone.app.querystring.field.fecini" interface="plone.app.querystring.interfaces.IQueryField" prefix="plone.app.querystring.field.fecini">
+        <value key="title">Data Inici d'Activitat</value>
         <value key="description">Custom start date index</value>
         <value key="enabled">False</value>
         <value key="sortable">True</value>
@@ -23,5 +23,5 @@
         </value>
         <value key="group">Custom</value>
     </records>
- -->
+
 </registry>
