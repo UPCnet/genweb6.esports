@@ -75,7 +75,7 @@
                                 <div tal:condition="item/credits">
                                     <img class="credits" tal:attributes="src string:++theme++genweb6.esports/img/${item/credits}.jpg" />
                                     <p>
-                                        <span>A validar-se amb el Quadern de Control d'Assitència (QCA)</span>
+                                        <span>Activitat amb crèdits. Consulteu condicions.</span>
                                     </p>
                                 </div>
                             </div>
