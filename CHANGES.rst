@@ -2,11 +2,11 @@ Changelog
 =========
 
 
-1.9 (unreleased)
+1.9 (2023-12-12)
 ----------------
 
-- Nothing changed yet.
-
+* Merge remote-tracking branch 'origin/develop' [Ruben Padilla Mateu]
+* Change string in activity view [Ruben Padilla Mateu]
 
 1.8 (2023-11-09)
 ----------------
