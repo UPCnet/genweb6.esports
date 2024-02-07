@@ -2,11 +2,12 @@ Changelog
 =========
 
 
-1.10 (unreleased)
+1.10 (2024-02-07)
 -----------------
 
-- Nothing changed yet.
-
+* Merge remote-tracking branch 'origin/develop' [Ruben Padilla Mateu]
+* Fix competition image not being displayed in esports collection view [Ruben Padilla Mateu]
+* Added purge varnish call when rendering imports [Ruben Padilla Mateu]
 
 1.9 (2023-12-12)
 ----------------
