@@ -34,6 +34,8 @@ class EsportsCollectionView(CollectionView):
                 img = obj.absolute_url() + '/@@images/image'
             elif hasattr(obj, 'img'):
                 img = remote_url + getattr(obj, 'img')
+            elif hasattr(obj, 'img_dep'):
+                img = remote_url + getattr(obj, 'img_dep')
             elif hasattr(obj, 'imagen'):
                 img = remote_url + getattr(obj, 'imagen')
 
