@@ -14,6 +14,7 @@ from plone.protect.interfaces import IDisableCSRFProtection
 from Products.Five.browser import BrowserView
 from zope.component import getUtility
 from zope.interface import alsoProvides
+from genweb6.core.purge import purge_varnish_paths
 
 
 class CleanSyncFolderView(BrowserView):
@@ -65,6 +66,12 @@ class SyncAllContentView(BrowserView):
             sync_content_view = self.context.restrictedTraverse(
                 f'{view_url}/sync_content')
             sync_content_view.render_import()
+        
+        # Purge varnish here to not repurge it with every content created
+            
+        paths = []
+        paths.append('/_purge_all')
+        purge_varnish_paths(self, paths)
 
         subjects_tool = getUtility(
             IKeywordsCategorizationUtility, 'portal_keywords_categorization')
