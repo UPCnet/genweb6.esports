@@ -9,10 +9,10 @@
         <metal:content-core fill-slot="content-core">
             <metal:block define-macro="content-core">
 
-                <div class="row portlet-view" tal:define="item view/get_info">
+                <div class="row portlet-view" tal:define="info view/get_info">
                     <div class="col-md-12">
                         <div class="row">
-                            <p tal:replace="structure item/text">Content</p>
+                            <p tal:replace="structure info/text">Content</p>
                             </div>
                         </div>
                     </div>
