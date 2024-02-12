@@ -2,11 +2,12 @@ Changelog
 =========
 
 
-1.11 (unreleased)
+1.11 (2024-02-12)
 -----------------
 
-- Nothing changed yet.
-
+* Merge remote-tracking branch 'origin/develop' [Ruben Padilla Mateu]
+* Change button of collection item if item is competicio [Ruben Padilla Mateu]
+* Modified genweb_simple workflow to allow Webmasters publish content [Ruben Padilla Mateu]
 
 1.10 (2024-02-07)
 -----------------
