@@ -40,11 +40,18 @@
                                                         <a tal:attributes="href item/url" class="btn btn-sm btn-primary">Accedeix
                                                         </a>
                                                     </p>
-                                                    <p tal:condition="item/omesa_link">
+
+                                                    <p tal:condition="python: item.get('omesa_link') and item.get('portal_type') == 'Curs'">
                                                         <a tal:attributes="href string:https://esportsonline.upc.edu/${item/omesa_link};" target="_blank" class="btn btn-sm btn-danger">Contracta online
                                                             <i class="bi bi-cart-check icon-white"></i>
                                                         </a>
                                                     </p>
+
+                                                    <p tal:condition="python: item.get('omesa_link') and item.get('portal_type') == 'Competicio'">
+                                                        <a tal:attributes="href string:https://esportsonline.upc.edu${item/omesa_link}" target="_blank" class="btn btn-sm btn-success">Classificacions
+                                                        </a>
+                                                    </p> 
+
                                                 </div>
                                             </div>
                                         </div>
