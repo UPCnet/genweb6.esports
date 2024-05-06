@@ -2,11 +2,13 @@ Changelog
 =========
 
 
-1.12 (unreleased)
+1.12 (2024-05-06)
 -----------------
 
-- Nothing changed yet.
-
+* Merge remote-tracking branch 'origin/develop' [ruben.padilla.mateu]
+* Format definition.xml [ruben.padilla.mateu]
+* Add WebMaster as guard-role to publish [ruben.padilla.mateu]
+* Accept image in cdatadesc fields [ruben.padilla.mateu]
 
 1.11 (2024-02-12)
 -----------------
