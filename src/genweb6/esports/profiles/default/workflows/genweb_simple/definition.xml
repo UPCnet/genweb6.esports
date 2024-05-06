@@ -222,6 +222,7 @@
   <guard>
    <guard-role>Manager</guard-role>
    <guard-role>Editor</guard-role>
+   <guard-role>WebMaster</guard-role>
   </guard>
  </transition>
  <transition transition_id="publishtointranet" title="Publish To Intranet" new_state="intranet" trigger="USER" before_script="" after_script="">
