@@ -131,15 +131,17 @@ class ImporterView(BrowserView):
 
     def set_cdatadesc(self, value):
         """ Maintain iframe and maps """
-        ALLOWED_TAGS = ['a', 'b', 'strong', 'br', 'iframe', 'p']
+
+        ALLOWED_TAGS = ['a', 'b', 'strong', 'br', 'iframe', 'p', 'img']
         ALLOWED_ATTRIBUTES = {
             'a': ['href', 'title'],
             'acronym': ['title'],
             'abbr': ['title'],
-            'iframe': ['src', 'height', 'width']}
-
+            'iframe': ['src', 'height', 'width'],
+            'img': ['src', 'alt', 'style', 'width', 'height', 'border', 'hspace']}
+        #Allow images and data protocol as the descrip field contains b64 images
         return bleach.clean(value, strip=True, tags=ALLOWED_TAGS,
-                            attributes=ALLOWED_ATTRIBUTES)
+                            attributes=ALLOWED_ATTRIBUTES, protocols=['http', 'https', 'data'])
 
     def set_cdatamaps(self, value):
         """ Maintain iframe and maps """
