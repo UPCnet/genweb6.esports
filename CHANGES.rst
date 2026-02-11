@@ -2,11 +2,11 @@ Changelog
 =========
 
 
-1.13 (unreleased)
+1.13 (2026-02-11)
 -----------------
 
-- Nothing changed yet.
-
+* Merge remote-tracking branch 'origin/develop' [pmarinas]
+* [FIX] npm audit [Iago López]
 
 1.12 (2024-05-06)
 -----------------
