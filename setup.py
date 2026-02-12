@@ -56,6 +56,7 @@ setup(
         'plone.app.dexterity',
         'bleach>=6.0.0',
         'genweb6.core',
+        'genweb6.theme',
     ],
     extras_require={
         'test': [
