@@ -24,4 +24,30 @@
         <value key="group">Custom</value>
     </records>
 
+  <!-- folder_contents (pat-structure): plone.icon.contenttype mas portal type normalizado -->
+  <record name="plone.icon.contenttype/competicio">
+    <field type="plone.registry.field.TextLine">
+      <title>Esports competició</title>
+    </field>
+    <value key="resource">++plone++bootstrap-icons/calendar-event.svg</value>
+  </record>
+  <record name="plone.icon.contenttype/curs">
+    <field type="plone.registry.field.TextLine">
+      <title>Esports activitat (curs)</title>
+    </field>
+    <value key="resource">++plone++bootstrap-icons/file-earmark-text.svg</value>
+  </record>
+  <record name="plone.icon.contenttype/instalacio">
+    <field type="plone.registry.field.TextLine">
+      <title>Esports instal·lació</title>
+    </field>
+    <value key="resource">++plone++bootstrap-icons/building.svg</value>
+  </record>
+  <record name="plone.icon.contenttype/syncfolder">
+    <field type="plone.registry.field.TextLine">
+      <title>Esports sync folder</title>
+    </field>
+    <value key="resource">++plone++bootstrap-icons/arrow-clockwise.svg</value>
+  </record>
+
 </registry>
