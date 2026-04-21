@@ -2,11 +2,15 @@ Changelog
 =========
 
 
-1.14 (unreleased)
+1.14 (2026-04-21)
 -----------------
 
-- Nothing changed yet.
-
+* [UPD] Registrar iconos que se usan en los tipos de contenido creados [Iago López]
+* Solucionar test Run failed: Buildout and QA [pmarinas]
+* Solucionar test Run failed: Buildout and QA [pmarinas]
+* Solucionar test Run failed: Buildout and QA [pmarinas]
+* Solucionar test Run failed: Buildout and QA [pmarinas]
+* Solucionar Run failed: Buildout and QA [pmarinas]
 
 1.13 (2026-02-11)
 -----------------
