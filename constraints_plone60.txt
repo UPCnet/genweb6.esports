@@ -1,8 +1,12 @@
--c https://dist.plone.org/release/6.0-dev/requirements.txt
+# Contenido del https://dist.plone.org/release/6.0.15/requirements.txt
+# (el KGS 6.0.15 fija zc.buildout 4.1.4: con otra version buildout intenta
+# autoinstalarla y falla)
+packaging==24.2
+pip==25.0.1
+setuptools==75.8.2
+wheel==0.45.1
+zc.buildout==4.1.4
 
-#setuptools==54.0.0
-#zc.buildout==3.0.0b2
-#pip==21.0.1
 #
 ## Windows specific down here (has to be installed here, fails in buildout)
 ## Dependency of zope.sendmail:
@@ -11,6 +15,8 @@
 ## SSL Certs on windows, because Python is missing them otherwise:
 #certifi ; platform_system == 'Windows'
 
-isort>=5
-black==22.8.0
-flake8>=5.0.4
+# Acaba el contenido del https://dist.plone.org/release/6.0.15/requirements.txt
+
+#isort>=5
+#black==22.8.0
+#flake8>=5.0.4

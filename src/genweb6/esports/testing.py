@@ -24,6 +24,9 @@ class Genweb6EsportsLayer(PloneSandboxLayer):
         self.loadZCML(package=plone.app.dexterity)
         import plone.restapi
         self.loadZCML(package=plone.restapi)
+        # genweb6.core define los permisos (genweb.webmaster...) que usa este paquete
+        import genweb6.core
+        self.loadZCML(package=genweb6.core)
         self.loadZCML(package=genweb6.esports)
 
     def setUpPloneSite(self, portal):
