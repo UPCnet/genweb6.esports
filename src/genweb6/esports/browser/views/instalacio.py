@@ -26,10 +26,7 @@ class InstalacioView(BrowserView):
             return False
 
     def get_tags(self):
-        try:
-            return eval(self.context.etiquetas)
-        except Exception:
-            return []
+        return get_list_from_string(self.context.etiquetas)
 
     def get_info(self):
         info = {

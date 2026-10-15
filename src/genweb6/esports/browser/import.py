@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from urllib.parse import unquote
+from urllib.parse import urlsplit
 
 import bleach
 import requests
@@ -94,8 +95,15 @@ class ImporterView(BrowserView):
     def get_XML(self):
         """  Get data in XML format from OMESA """
 
-        data = requests.get(self.context.url)
-        tree = etree.fromstring(data.content)
+        url = self.context.url
+        if urlsplit(url or '').scheme not in ('http', 'https'):
+            raise ValueError('Invalid sync url: %r' % url)
+        # timeout para no dejar colgado el hilo de Zope si el servidor no responde
+        data = requests.get(url, timeout=60)
+        data.raise_for_status()
+        # sin entidades externas ni acceso a red al parsear (evita XXE)
+        parser = etree.XMLParser(resolve_entities=False, no_network=True)
+        tree = etree.fromstring(data.content, parser=parser)
         self.xml = tree
 
     def get_tags(self, item):

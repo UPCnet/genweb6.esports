@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from plone import api
 
+import ast
+
 
 def publish_object(obj):
     workflow_tool = api.portal.get_tool('portal_workflow')
@@ -19,7 +21,9 @@ def query_catalog(portal_type):
 
 
 def get_list_from_string(string):
+    """Convierte un literal Python (lista, dict...) guardado en un campo de
+    texto. Se usa literal_eval: el campo lo edita un usuario, no se ejecuta."""
     try:
-        return eval(string)
+        return ast.literal_eval(string)
     except Exception:
         return []
