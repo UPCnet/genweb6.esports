@@ -2,11 +2,11 @@ Changelog
 =========
 
 
-1.15 (unreleased)
+1.15 (2026-11-02)
 -----------------
 
-- Nothing changed yet.
-
+* [FIX] Modificar versiones plone 6_0_15 para que funcione CI [pmarinas]
+* [FIX] Cambios al subir plone 6_0_15 y parches seguridad [pmarinas]
 
 1.14 (2026-04-21)
 -----------------
